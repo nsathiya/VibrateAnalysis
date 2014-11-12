@@ -14,7 +14,6 @@
 		410680EB1A09F0DA003CB1AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 410680EA1A09F0DA003CB1AF /* main.m */; };
 		410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */; };
 		410680F21A09F0DA003CB1AF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */; };
-		410680F51A09F0DA003CB1AF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410680F31A09F0DA003CB1AF /* Main_iPad.storyboard */; };
 		410680F81A09F0DA003CB1AF /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410680F71A09F0DA003CB1AF /* CCViewController.m */; };
 		410680FA1A09F0DA003CB1AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410680F91A09F0DA003CB1AF /* Images.xcassets */; };
 		410681011A09F0DA003CB1AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410681001A09F0DA003CB1AF /* XCTest.framework */; };
@@ -28,6 +27,9 @@
 		41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */; };
 		41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F351A0F4C96003CB1AF /* DataReadPoint.m */; };
 		89CE70271A12FDD300D92B21 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */; };
+		89CE70321A13443400D92B21 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70311A13443400D92B21 /* ReminderTableViewController.m */; };
+		89CE70351A134C5900D92B21 /* IndividualReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */; };
+		89CE70381A134D3600D92B21 /* ReminderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* ReminderObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,6 @@
 		410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAppDelegate.h; sourceTree = "<group>"; };
 		410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAppDelegate.m; sourceTree = "<group>"; };
 		410680F11A09F0DA003CB1AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		410680F41A09F0DA003CB1AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		410680F61A09F0DA003CB1AF /* CCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCViewController.h; sourceTree = "<group>"; };
 		410680F71A09F0DA003CB1AF /* CCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		410680F91A09F0DA003CB1AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -148,6 +149,12 @@
 		89CE70241A12FDD300D92B21 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		89CE70251A12FDD300D92B21 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		89CE70301A13443400D92B21 /* ReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderTableViewController.h; path = ../ReminderTableViewController.h; sourceTree = "<group>"; };
+		89CE70311A13443400D92B21 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderTableViewController.m; path = ../ReminderTableViewController.m; sourceTree = "<group>"; };
+		89CE70331A134C5900D92B21 /* IndividualReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualReminderViewController.h; sourceTree = "<group>"; };
+		89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualReminderViewController.m; sourceTree = "<group>"; };
+		89CE70361A134D3600D92B21 /* ReminderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderObject.h; sourceTree = "<group>"; };
+		89CE70371A134D3600D92B21 /* ReminderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,9 +225,14 @@
 				410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */,
 				410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */,
 				410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */,
+				89CE70361A134D3600D92B21 /* ReminderObject.h */,
+				89CE70371A134D3600D92B21 /* ReminderObject.m */,
+				89CE70301A13443400D92B21 /* ReminderTableViewController.h */,
+				89CE70311A13443400D92B21 /* ReminderTableViewController.m */,
+				89CE70331A134C5900D92B21 /* IndividualReminderViewController.h */,
+				89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */,
 				41068F251A0DE105003CB1AF /* ScatterPlotViewController.h */,
 				41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */,
-				410680F31A09F0DA003CB1AF /* Main_iPad.storyboard */,
 				410680F61A09F0DA003CB1AF /* CCViewController.h */,
 				410680F71A09F0DA003CB1AF /* CCViewController.m */,
 				410680F91A09F0DA003CB1AF /* Images.xcassets */,
@@ -433,7 +445,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				410680F51A09F0DA003CB1AF /* Main_iPad.storyboard in Resources */,
 				410680FA1A09F0DA003CB1AF /* Images.xcassets in Resources */,
 				410680F21A09F0DA003CB1AF /* Main_iPhone.storyboard in Resources */,
 				410680E91A09F0DA003CB1AF /* InfoPlist.strings in Resources */,
@@ -457,10 +468,13 @@
 			files = (
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */,
+				89CE70381A134D3600D92B21 /* ReminderObject.m in Sources */,
 				41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */,
+				89CE70321A13443400D92B21 /* ReminderTableViewController.m in Sources */,
 				410680EB1A09F0DA003CB1AF /* main.m in Sources */,
 				41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */,
 				410680F81A09F0DA003CB1AF /* CCViewController.m in Sources */,
+				89CE70351A134C5900D92B21 /* IndividualReminderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,14 +511,6 @@
 				410680F11A09F0DA003CB1AF /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		410680F31A09F0DA003CB1AF /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				410680F41A09F0DA003CB1AF /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		410681091A09F0DB003CB1AF /* InfoPlist.strings */ = {
