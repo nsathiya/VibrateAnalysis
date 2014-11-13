@@ -14,7 +14,7 @@
 {
     [super viewDidLoad];
     self.viewName.title = [self.individual getName];
-    self.dosage.text = [[self.individual getDosage] stringValue];
+    self.dosage.text = [self.individual getDosage];
 }
 
 @end

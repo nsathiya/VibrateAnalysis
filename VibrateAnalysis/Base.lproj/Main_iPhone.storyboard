@@ -216,7 +216,6 @@
         <!--Stats-->
         <scene sceneID="buv-cR-wtn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dcs-oj-iC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zKa-97-P7e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stats" id="86f-bv-FDD"/>
                     <toolbarItems/>
@@ -229,6 +228,7 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="AJk-yz-xyN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcs-oj-iC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="-293"/>
         </scene>
@@ -278,7 +278,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="Zeg-sy-9G2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g4T-ao-9rk">
                             <connections>
-                                <segue destination="eKG-vb-Fbr" kind="push" id="t1w-Ge-YBG"/>
+                                <segue destination="eKG-vb-Fbr" kind="push" identifier="addView" id="t1w-Ge-YBG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -326,7 +326,7 @@
         <!--Add-->
         <scene sceneID="kyY-Tq-4Uf">
             <objects>
-                <viewController id="eKG-vb-Fbr" sceneMemberID="viewController">
+                <viewController id="eKG-vb-Fbr" customClass="AddReminderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zHc-hh-tJ4"/>
                         <viewControllerLayoutGuide type="bottom" id="2cE-hY-IAA"/>
@@ -362,6 +362,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPressed:" destination="eKG-vb-Fbr" eventType="touchUpInside" id="JiZ-W5-M0f"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-bD-zcO">
                                 <rect key="frame" x="220" y="172" width="25" height="21"/>
@@ -373,6 +376,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add" id="BL4-Uh-f6G"/>
+                    <connections>
+                        <outlet property="dosage" destination="QBd-gY-md4" id="poI-ki-0tJ"/>
+                        <outlet property="name" destination="5Qc-HM-Uka" id="e7u-WQ-Nkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeA-nt-g1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

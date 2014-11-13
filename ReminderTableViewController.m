@@ -8,15 +8,16 @@
 
 #import "ReminderTableViewController.h"
 #import "IndividualReminderViewController.h"
+#import "AddReminderViewController.h"
 
 @implementation ReminderTableViewController
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    ReminderObject *drug1 = [[ReminderObject alloc]initWithName:@"Sinemet" dosage:@25];
-    ReminderObject *drug2 = [[ReminderObject alloc]initWithName:@"Lopressor" dosage:@50];
-    ReminderObject *drug3 = [[ReminderObject alloc]initWithName:@"Inderal" dosage:@75];
+    ReminderObject *drug1 = [[ReminderObject alloc]initWithName:@"Sinemet" dosage:@"25"];
+    ReminderObject *drug2 = [[ReminderObject alloc]initWithName:@"Lopressor" dosage:@"50"];
+    ReminderObject *drug3 = [[ReminderObject alloc]initWithName:@"Inderal" dosage:@"75"];
     
     self.reminderArray = [[NSMutableArray alloc] initWithObjects:drug1, drug2, drug3, nil];
 }
@@ -24,6 +25,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -63,6 +65,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         IndividualReminderViewController *destViewController = segue.destinationViewController;
         destViewController.individual = [self.reminderArray objectAtIndex:indexPath.row];
+    } else if ([segue.identifier isEqualToString:@"addView"]) {
+        AddReminderViewController *destViewController = segue.destinationViewController;
+        destViewController.caller = self;
     }
 }
 

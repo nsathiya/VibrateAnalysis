@@ -10,7 +10,7 @@
 
 @implementation ReminderObject
 
-- (id) initWithName:(NSString *)name dosage:(NSNumber *)dosage
+- (id) initWithName:(NSString *)name dosage:(NSString *)dosage
 {
     self = [super init];
     if (self)
@@ -27,7 +27,7 @@
     return self.name;
 }
 
-- (NSNumber *) getDosage
+- (NSString *) getDosage
 {
     return self.dosage;
 }

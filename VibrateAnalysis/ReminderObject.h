@@ -11,11 +11,11 @@
 @interface ReminderObject : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *dosage;
+@property (nonatomic, strong) NSString *dosage;
 @property (nonatomic, strong) NSMutableArray *alerts;
 
-- (id) initWithName:(NSString *)name dosage:(NSNumber *)dosage;
+- (id) initWithName:(NSString *)name dosage:(NSString *)dosage;
 - (NSString *) getName;
-- (NSNumber *) getDosage;
+- (NSString *) getDosage;
 
 @end
