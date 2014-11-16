@@ -308,7 +308,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npi-Zr-htT">
                                 <rect key="frame" x="90" y="76" width="214" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="h5H-4i-u4e" id="m6F-36-OcT"/>
                                 </connections>
@@ -325,7 +325,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5sE-9f-QgD">
-                                <rect key="frame" x="16" y="118" width="288" height="345"/>
+                                <rect key="frame" x="16" y="131" width="288" height="322"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert" id="qt8-UB-I8Q">
@@ -359,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asl-L5-N1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="1185"/>
+            <point key="canvasLocation" x="1368" y="1184"/>
         </scene>
         <!--Add Alert-->
         <scene sceneID="xHt-qd-pYK">

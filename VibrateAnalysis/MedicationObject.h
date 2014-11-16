@@ -20,5 +20,6 @@
 - (NSMutableArray *) getAlerts;
 
 - (void) addReminder:(NSDate *)date;
+- (void) removeReminder:(NSInteger)index;
 
 @end

@@ -43,5 +43,10 @@
     [self.alerts addObject:date];
 }
 
+- (void) removeReminder:(NSInteger)index
+{
+    [self.alerts removeObjectAtIndex:index];
+}
+
 
 @end

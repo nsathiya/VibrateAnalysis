@@ -28,9 +28,15 @@
     [[self.caller.reminderArray objectAtIndex:self.index] setDosage:self.dosage.text];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[self.caller.reminderArray objectAtIndex:self.index] removeReminder:indexPath.row];
+    [self.alerts reloadData];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
-if ([self.dosage isFirstResponder] && [touch view] != self.dosage) {
+    if ([self.dosage isFirstResponder] && [touch view] != self.dosage) {
         [self.dosage resignFirstResponder];
     }
     [super touchesBegan:touches withEvent:event];
