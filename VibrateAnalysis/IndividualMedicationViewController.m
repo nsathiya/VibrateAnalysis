@@ -61,9 +61,37 @@
     NSDateComponents *timeComponents = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
                                                    fromDate:date];
     
-    NSString *time = [NSString stringWithFormat:@"%d : %d", [timeComponents hour], [timeComponents minute]];
+    NSInteger hour = [timeComponents hour];
+    NSInteger minute = [timeComponents minute];
+    NSString *hourString;
+    NSString *minuteString;
+    NSString *ampm;
+
+    if (hour >= 12) {
+        ampm = @" pm";
+        if (hour > 12){
+            hour = hour - 12;
+        }
+    } else {
+        ampm = @" am";
+        if (hour == 0){
+            hour = 12;
+        }
+    }
     
-    cell.textLabel.text = time;
+    hourString = [NSString stringWithFormat:@"%d", hour];
+    
+    if (minute < 10){
+        minuteString = [NSString stringWithFormat:@"0%d", minute];
+    } else {
+        minuteString = [NSString stringWithFormat:@"%d", minute];
+    }
+    
+    NSString *colon = @" : ";
+    
+    NSString *completedTime = [[[hourString stringByAppendingString:colon] stringByAppendingString:minuteString] stringByAppendingString:ampm];
+    
+    cell.textLabel.text = completedTime;
     
     return cell;
 }

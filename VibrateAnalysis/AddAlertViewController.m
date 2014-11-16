@@ -61,7 +61,9 @@
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = itemDate;
-    localNotification.alertBody = [[self.caller.reminderArray objectAtIndex: self.index] getName];
+    NSString *description = @"Don't forget to take ";
+    description = [description stringByAppendingString:[[self.caller.reminderArray objectAtIndex:self.index]getName]];
+    localNotification.alertBody = description;
     localNotification.alertAction = @"Dismiss";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
