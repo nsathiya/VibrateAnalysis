@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) MedicationTableViewController *caller;
 @property (nonatomic) NSInteger index;
+@property (nonatomic) BOOL willDelete;
 
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *viewName;

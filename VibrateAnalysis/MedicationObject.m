@@ -38,6 +38,11 @@
     return self.alerts;
 }
 
+- (NSDate *) getDate:(NSInteger)index
+{
+    return [self.alerts objectAtIndex:index];
+}
+
 - (void) addReminder:(NSDate *)date
 {
     [self.alerts addObject:date];

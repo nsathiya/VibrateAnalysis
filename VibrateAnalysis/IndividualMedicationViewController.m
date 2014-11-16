@@ -15,6 +15,7 @@
     [super viewDidLoad];
     self.viewName.title = [[self.caller.reminderArray objectAtIndex: self.index] getName];
     self.dosage.text = [[self.caller.reminderArray objectAtIndex: self.index] getDosage];
+    self.willDelete = false;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -25,13 +26,33 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[self.caller.reminderArray objectAtIndex:self.index] setDosage:self.dosage.text];
+    if (!self.willDelete){
+        [[self.caller.reminderArray objectAtIndex:self.index] setDosage:self.dosage.text];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *arrayOfLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications] ;
+    
+    for (UILocalNotification *localNotification in arrayOfLocalNotifications) {
+        NSString *description = @"Don't forget to take ";
+        description = [description stringByAppendingString:[[self.caller.reminderArray objectAtIndex:self.index]getName]];
+        if ([localNotification.alertBody isEqualToString:description] && [localNotification.fireDate isEqualToDate:[[self.caller.reminderArray objectAtIndex:self.index] getDate:indexPath.row]]) {
+
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification] ; // delete the notification from the system
+            
+        }
+        
+    }
+    
+    
     [[self.caller.reminderArray objectAtIndex:self.index] removeReminder:indexPath.row];
     [self.alerts reloadData];
+    
+    
+    
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -67,8 +88,23 @@
     
     if([title isEqualToString:@"Ok"])
     {
+        NSArray *arrayOfLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications] ;
+
+        for (UILocalNotification *localNotification in arrayOfLocalNotifications) {
+            NSString *description = @"Don't forget to take ";
+            description = [description stringByAppendingString:[[self.caller.reminderArray objectAtIndex:self.index]getName]];
+            if ([localNotification.alertBody isEqualToString:description]) {
+                
+                [[UIApplication sharedApplication] cancelLocalNotification:localNotification] ; // delete the notification from the system
+                
+            }
+            
+        }
+        
+        
         [self.caller.reminderArray removeObjectAtIndex:self.index];
         [self.navigationController popViewControllerAnimated:YES];
+        self.willDelete = true;
     }
 }
 
@@ -134,6 +170,12 @@
     cell.textLabel.text = completedTime;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Change the selected background view of the cell.
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

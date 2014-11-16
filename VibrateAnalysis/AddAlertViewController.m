@@ -36,7 +36,6 @@
 
 - (IBAction)addAlert:(id)sender {
     
-
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDate *selected = [self.time date];
     
@@ -65,6 +64,7 @@
     description = [description stringByAppendingString:[[self.caller.reminderArray objectAtIndex:self.index]getName]];
     localNotification.alertBody = description;
     localNotification.alertAction = @"Dismiss";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     localNotification.repeatInterval = NSDayCalendarUnit;

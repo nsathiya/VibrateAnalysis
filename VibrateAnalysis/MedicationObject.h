@@ -18,6 +18,7 @@
 - (NSString *) getName;
 - (NSString *) getDosage;
 - (NSMutableArray *) getAlerts;
+- (NSDate *) getDate:(NSInteger)index;
 
 - (void) addReminder:(NSDate *)date;
 - (void) removeReminder:(NSInteger)index;
