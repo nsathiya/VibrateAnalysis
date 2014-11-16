@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MedicationObject.h"
 #import "MedicationTableViewController.h"
+#import "AddAlertViewController.h"
 
 @interface IndividualMedicationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

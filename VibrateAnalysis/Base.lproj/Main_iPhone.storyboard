@@ -344,7 +344,7 @@
                     <navigationItem key="navigationItem" id="JDV-hK-KzO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xsi-TD-VmV">
                             <connections>
-                                <segue destination="tUL-ZV-atY" kind="push" id="GeR-mg-DPK"/>
+                                <segue destination="tUL-ZV-atY" kind="push" identifier="addAlert" id="GeR-mg-DPK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -17,6 +17,12 @@
     self.dosage.text = [[self.caller.reminderArray objectAtIndex: self.index] getDosage];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.alerts reloadData];
+}
+
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self.caller.reminderArray objectAtIndex:self.index] setDosage:self.dosage.text];
@@ -60,6 +66,14 @@
     cell.textLabel.text = time;
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"addAlert"]) {
+        AddAlertViewController *destViewController = segue.destinationViewController;
+        destViewController.caller = self.caller;
+    }
 }
 
 
