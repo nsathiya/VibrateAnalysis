@@ -11,7 +11,7 @@
 #import "MedicationTableViewController.h"
 #import "AddAlertViewController.h"
 
-@interface IndividualMedicationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface IndividualMedicationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) MedicationTableViewController *caller;
 @property (nonatomic) NSInteger index;
@@ -19,7 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *viewName;
 
-@property (weak, nonatomic) IBOutlet UITextField *dosage;
+@property (strong, nonatomic) IBOutlet UITextField *dosage;
+
 - (IBAction)delete:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITableView *alerts;

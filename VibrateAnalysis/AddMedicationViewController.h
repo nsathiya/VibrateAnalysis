@@ -10,7 +10,7 @@
 #import "MedicationTableViewController.h"
 #import "MedicationObject.h"
 
-@interface AddMedicationViewController : UIViewController
+@interface AddMedicationViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) MedicationTableViewController *caller;
 @property (nonatomic, strong) MedicationObject *reminder;

@@ -28,10 +28,44 @@
     [[self.caller.reminderArray objectAtIndex:self.index] setDosage:self.dosage.text];
 }
 
-- (IBAction)delete:(id)sender {
-    [self.caller.reminderArray removeObjectAtIndex:self.index];
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+if ([self.dosage isFirstResponder] && [touch view] != self.dosage) {
+        [self.dosage resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+
+
+- (IBAction)delete:(id)sender {
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Delete"
+                                                      message:@"Are you sure you want to delete this medication?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Ok", nil];
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"Ok"])
+    {
+        [self.caller.reminderArray removeObjectAtIndex:self.index];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -101,6 +135,7 @@
     if ([segue.identifier isEqualToString:@"addAlert"]) {
         AddAlertViewController *destViewController = segue.destinationViewController;
         destViewController.caller = self.caller;
+        destViewController.index  = self.index;
     }
 }
 

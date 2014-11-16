@@ -34,6 +34,24 @@
 }
 */
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.name isFirstResponder] && [touch view] != self.name) {
+        [self.name resignFirstResponder];
+    } else if ([self.dosage isFirstResponder] && [touch view] != self.dosage) {
+        [self.dosage resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+
 - (IBAction)addPressed:(id)sender {
     self.reminder = [[MedicationObject alloc]initWithName:self.name.text dosage:self.dosage.text];
     [self.caller.reminderArray addObject:self.reminder];

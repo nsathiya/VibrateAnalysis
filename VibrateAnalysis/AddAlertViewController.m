@@ -52,7 +52,7 @@
     
     [dateComps setHour:[timeComponents hour]];
     [dateComps setMinute:[timeComponents minute]];
-    [dateComps setSecond:[timeComponents second]];
+    [dateComps setSecond:0];
     
     NSDate *itemDate = [calendar dateFromComponents:dateComps];
     
