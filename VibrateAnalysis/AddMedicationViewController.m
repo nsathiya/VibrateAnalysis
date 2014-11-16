@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Naren Sathiya. All rights reserved.
 //
 
-#import "AddReminderViewController.h"
+#import "AddMedicationViewController.h"
 
-@interface AddReminderViewController ()
+@interface AddMedicationViewController ()
 
 @end
 
-@implementation AddReminderViewController
+@implementation AddMedicationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +35,7 @@
 */
 
 - (IBAction)addPressed:(id)sender {
-    self.reminder = [[ReminderObject alloc]initWithName:self.name.text dosage:self.dosage.text];
+    self.reminder = [[MedicationObject alloc]initWithName:self.name.text dosage:self.dosage.text];
     [self.caller.reminderArray addObject:self.reminder];
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ReminderObject : NSObject
+@interface MedicationObject : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *dosage;

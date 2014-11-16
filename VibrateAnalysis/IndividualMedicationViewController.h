@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReminderObject.h"
+#import "MedicationObject.h"
+#import "MedicationTableViewController.h"
 
-@interface IndividualReminderViewController : UIViewController
+@interface IndividualMedicationViewController : UIViewController
 
-@property (nonatomic, strong) ReminderObject* individual;
+@property (nonatomic, strong) MedicationTableViewController *caller;
+@property (nonatomic) NSInteger index;
+@property (nonatomic, strong) NSString *hello;
+
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *viewName;
 
 @property (weak, nonatomic) IBOutlet UITextField *dosage;
+- (IBAction)delete:(id)sender;
 
 @end

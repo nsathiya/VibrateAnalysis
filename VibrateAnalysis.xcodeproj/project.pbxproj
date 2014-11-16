@@ -26,11 +26,11 @@
 		41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */; };
 		41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */; };
 		41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F351A0F4C96003CB1AF /* DataReadPoint.m */; };
-		896120EC1A1549CD0043DCAC /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896120EB1A1549CD0043DCAC /* AddReminderViewController.m */; };
+		896120EC1A1549CD0043DCAC /* AddMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */; };
 		89CE70271A12FDD300D92B21 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */; };
-		89CE70321A13443400D92B21 /* ReminderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70311A13443400D92B21 /* ReminderTableViewController.m */; };
-		89CE70351A134C5900D92B21 /* IndividualReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */; };
-		89CE70381A134D3600D92B21 /* ReminderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* ReminderObject.m */; };
+		89CE70321A13443400D92B21 /* MedicationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70311A13443400D92B21 /* MedicationTableViewController.m */; };
+		89CE70351A134C5900D92B21 /* IndividualMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */; };
+		89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* MedicationObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		41068F341A0F4C96003CB1AF /* DataReadPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataReadPoint.h; sourceTree = "<group>"; };
 		41068F351A0F4C96003CB1AF /* DataReadPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataReadPoint.m; sourceTree = "<group>"; };
-		896120EA1A1549CD0043DCAC /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
-		896120EB1A1549CD0043DCAC /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		896120EA1A1549CD0043DCAC /* AddMedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMedicationViewController.h; sourceTree = "<group>"; };
+		896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMedicationViewController.m; sourceTree = "<group>"; };
 		89CE6FD81A12FDD300D92B21 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		89CE6FD91A12FDD300D92B21 /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		89CE6FDA1A12FDD300D92B21 /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -152,12 +152,12 @@
 		89CE70241A12FDD300D92B21 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		89CE70251A12FDD300D92B21 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
-		89CE70301A13443400D92B21 /* ReminderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReminderTableViewController.h; path = ../ReminderTableViewController.h; sourceTree = "<group>"; };
-		89CE70311A13443400D92B21 /* ReminderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReminderTableViewController.m; path = ../ReminderTableViewController.m; sourceTree = "<group>"; };
-		89CE70331A134C5900D92B21 /* IndividualReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualReminderViewController.h; sourceTree = "<group>"; };
-		89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualReminderViewController.m; sourceTree = "<group>"; };
-		89CE70361A134D3600D92B21 /* ReminderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderObject.h; sourceTree = "<group>"; };
-		89CE70371A134D3600D92B21 /* ReminderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderObject.m; sourceTree = "<group>"; };
+		89CE70301A13443400D92B21 /* MedicationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicationTableViewController.h; path = ../MedicationTableViewController.h; sourceTree = "<group>"; };
+		89CE70311A13443400D92B21 /* MedicationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MedicationTableViewController.m; path = ../MedicationTableViewController.m; sourceTree = "<group>"; };
+		89CE70331A134C5900D92B21 /* IndividualMedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualMedicationViewController.h; sourceTree = "<group>"; };
+		89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualMedicationViewController.m; sourceTree = "<group>"; };
+		89CE70361A134D3600D92B21 /* MedicationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationObject.h; sourceTree = "<group>"; };
+		89CE70371A134D3600D92B21 /* MedicationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,14 +228,14 @@
 				410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */,
 				410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */,
 				410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */,
-				896120EA1A1549CD0043DCAC /* AddReminderViewController.h */,
-				896120EB1A1549CD0043DCAC /* AddReminderViewController.m */,
-				89CE70361A134D3600D92B21 /* ReminderObject.h */,
-				89CE70371A134D3600D92B21 /* ReminderObject.m */,
-				89CE70301A13443400D92B21 /* ReminderTableViewController.h */,
-				89CE70311A13443400D92B21 /* ReminderTableViewController.m */,
-				89CE70331A134C5900D92B21 /* IndividualReminderViewController.h */,
-				89CE70341A134C5900D92B21 /* IndividualReminderViewController.m */,
+				896120EA1A1549CD0043DCAC /* AddMedicationViewController.h */,
+				896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */,
+				89CE70361A134D3600D92B21 /* MedicationObject.h */,
+				89CE70371A134D3600D92B21 /* MedicationObject.m */,
+				89CE70301A13443400D92B21 /* MedicationTableViewController.h */,
+				89CE70311A13443400D92B21 /* MedicationTableViewController.m */,
+				89CE70331A134C5900D92B21 /* IndividualMedicationViewController.h */,
+				89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */,
 				41068F251A0DE105003CB1AF /* ScatterPlotViewController.h */,
 				41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */,
 				410680F61A09F0DA003CB1AF /* CCViewController.h */,
@@ -471,16 +471,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				896120EC1A1549CD0043DCAC /* AddReminderViewController.m in Sources */,
+				896120EC1A1549CD0043DCAC /* AddMedicationViewController.m in Sources */,
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */,
-				89CE70381A134D3600D92B21 /* ReminderObject.m in Sources */,
+				89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */,
 				41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */,
-				89CE70321A13443400D92B21 /* ReminderTableViewController.m in Sources */,
+				89CE70321A13443400D92B21 /* MedicationTableViewController.m in Sources */,
 				410680EB1A09F0DA003CB1AF /* main.m in Sources */,
 				41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */,
 				410680F81A09F0DA003CB1AF /* CCViewController.m in Sources */,
-				89CE70351A134C5900D92B21 /* IndividualReminderViewController.m in Sources */,
+				89CE70351A134C5900D92B21 /* IndividualMedicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

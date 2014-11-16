@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Naren Sathiya. All rights reserved.
 //
 
-#import "ReminderTableViewController.h"
-#import "IndividualReminderViewController.h"
-#import "AddReminderViewController.h"
+#import "MedicationTableViewController.h"
+#import "IndividualMedicationViewController.h"
+#import "AddMedicationViewController.h"
 
-@implementation ReminderTableViewController
+@implementation MedicationTableViewController
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    ReminderObject *drug1 = [[ReminderObject alloc]initWithName:@"Sinemet" dosage:@"25"];
-    ReminderObject *drug2 = [[ReminderObject alloc]initWithName:@"Lopressor" dosage:@"50"];
-    ReminderObject *drug3 = [[ReminderObject alloc]initWithName:@"Inderal" dosage:@"75"];
+    MedicationObject *drug1 = [[MedicationObject alloc]initWithName:@"Sinemet" dosage:@"25"];
+    MedicationObject *drug2 = [[MedicationObject alloc]initWithName:@"Lopressor" dosage:@"50"];
+    MedicationObject *drug3 = [[MedicationObject alloc]initWithName:@"Inderal" dosage:@"75"];
     
     self.reminderArray = [[NSMutableArray alloc] initWithObjects:drug1, drug2, drug3, nil];
 }
@@ -63,10 +63,11 @@
 {
     if ([segue.identifier isEqualToString:@"individualView"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        IndividualReminderViewController *destViewController = segue.destinationViewController;
-        destViewController.individual = [self.reminderArray objectAtIndex:indexPath.row];
+        IndividualMedicationViewController *destViewController = segue.destinationViewController;
+        destViewController.caller = self;
+        destViewController.index = indexPath.row;
     } else if ([segue.identifier isEqualToString:@"addView"]) {
-        AddReminderViewController *destViewController = segue.destinationViewController;
+        AddMedicationViewController *destViewController = segue.destinationViewController;
         destViewController.caller = self;
     }
 }

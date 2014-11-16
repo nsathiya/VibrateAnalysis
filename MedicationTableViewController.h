@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReminderObject.h"
+#import "MedicationObject.h"
 
-@interface ReminderTableViewController : UITableViewController
+@interface MedicationTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *reminderArray;
 

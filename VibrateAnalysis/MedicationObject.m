@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Naren Sathiya. All rights reserved.
 //
 
-#import "ReminderObject.h"
+#import "MedicationObject.h"
 
-@implementation ReminderObject
+@implementation MedicationObject
 
 - (id) initWithName:(NSString *)name dosage:(NSString *)dosage
 {
@@ -31,5 +31,6 @@
 {
     return self.dosage;
 }
+
 
 @end

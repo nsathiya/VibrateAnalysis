@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReminderTableViewController.h"
-#import "ReminderObject.h"
+#import "MedicationTableViewController.h"
+#import "MedicationObject.h"
 
-@interface AddReminderViewController : UIViewController
+@interface AddMedicationViewController : UIViewController
 
-@property ReminderTableViewController *caller;
-@property ReminderObject *reminder;
+@property (nonatomic, strong) MedicationTableViewController *caller;
+@property (nonatomic, strong) MedicationObject *reminder;
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *dosage;
 
