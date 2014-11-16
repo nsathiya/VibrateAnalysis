@@ -17,5 +17,8 @@
 - (id) initWithName:(NSString *)name dosage:(NSString *)dosage;
 - (NSString *) getName;
 - (NSString *) getDosage;
+- (NSMutableArray *) getAlerts;
+
+- (void) addReminder:(NSDate *)date;
 
 @end

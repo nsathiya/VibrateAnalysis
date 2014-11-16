@@ -26,4 +26,41 @@
     [self.caller.reminderArray removeObjectAtIndex:self.index];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self.caller.reminderArray objectAtIndex:self.index] getAlerts].count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *myIdentifier = @"alerts";
+    UITableViewCell *cell = [self.alerts dequeueReusableCellWithIdentifier:myIdentifier];
+    
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:myIdentifier];
+    }
+    
+    NSDate *date = [[[self.caller.reminderArray objectAtIndex:self.index] getAlerts] objectAtIndex: indexPath.row];
+    
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDateComponents *timeComponents = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
+                                                   fromDate:date];
+    
+    NSString *time = [NSString stringWithFormat:@"%d : %d", [timeComponents hour], [timeComponents minute]];
+    
+    cell.textLabel.text = time;
+    
+    return cell;
+}
+
+
 @end

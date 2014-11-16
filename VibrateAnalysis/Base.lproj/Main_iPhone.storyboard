@@ -325,7 +325,7 @@
                                 <rect key="frame" x="16" y="118" width="288" height="345"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qt8-UB-I8Q">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert" id="qt8-UB-I8Q">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qt8-UB-I8Q" id="Q64-bA-FbF">
@@ -333,6 +333,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h5H-4i-u4e" id="mqG-Qd-dij"/>
+                                    <outlet property="delegate" destination="h5H-4i-u4e" id="UTg-9d-pkl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -345,6 +349,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alerts" destination="5sE-9f-QgD" id="SHN-zc-af9"/>
                         <outlet property="dosage" destination="Npi-Zr-htT" id="WFY-vW-mCD"/>
                         <outlet property="viewName" destination="JDV-hK-KzO" id="H5m-jr-Z0q"/>
                     </connections>
@@ -356,7 +361,7 @@
         <!--Add Alert-->
         <scene sceneID="xHt-qd-pYK">
             <objects>
-                <viewController id="tUL-ZV-atY" sceneMemberID="viewController">
+                <viewController id="tUL-ZV-atY" customClass="AddAlertViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cap-R7-TmR"/>
                         <viewControllerLayoutGuide type="bottom" id="wJf-6j-c6n"/>
@@ -371,10 +376,23 @@
                                     <!--2014-11-16 02:00:37 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-B4-5R8">
+                                <rect key="frame" x="145" y="349" width="30" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAlert:" destination="tUL-ZV-atY" eventType="touchUpInside" id="bbY-L3-cpg"/>
+                                    <action selector="addPressed:" destination="eKG-vb-Fbr" eventType="touchUpInside" id="5Ca-c2-j6x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Alert" id="aAY-Oh-ZWN"/>
+                    <connections>
+                        <outlet property="time" destination="YQB-d5-Toy" id="7Ov-bE-v59"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sh2-GR-Mhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

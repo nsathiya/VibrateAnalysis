@@ -18,6 +18,7 @@
         self.name = name;
         self.dosage = dosage;
         self.alerts = [[NSMutableArray alloc]init];
+        [self.alerts addObject:[NSDate date]];
     }
     return self;
 }
@@ -30,6 +31,16 @@
 - (NSString *) getDosage
 {
     return self.dosage;
+}
+
+- (NSMutableArray *) getAlerts
+{
+    return self.alerts;
+}
+
+- (void) addReminder:(NSDate *)date
+{
+    [self.alerts addObject:date];
 }
 
 

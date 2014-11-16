@@ -10,16 +10,18 @@
 #import "MedicationObject.h"
 #import "MedicationTableViewController.h"
 
-@interface IndividualMedicationViewController : UIViewController
+@interface IndividualMedicationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) MedicationTableViewController *caller;
 @property (nonatomic) NSInteger index;
-@property (nonatomic, strong) NSString *hello;
 
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *viewName;
 
 @property (weak, nonatomic) IBOutlet UITextField *dosage;
 - (IBAction)delete:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITableView *alerts;
+
 
 @end
