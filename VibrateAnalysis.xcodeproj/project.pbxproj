@@ -28,6 +28,9 @@
 		41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */; };
 		41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */; };
 		41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F351A0F4C96003CB1AF /* DataReadPoint.m */; };
+		41068F381A13630E003CB1AF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41068F371A13630E003CB1AF /* Accelerate.framework */; };
+		41068F3B1A16F826003CB1AF /* AAnalysisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F3A1A16F826003CB1AF /* AAnalysisController.m */; };
+		41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +151,10 @@
 		41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		41068F341A0F4C96003CB1AF /* DataReadPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataReadPoint.h; sourceTree = "<group>"; };
 		41068F351A0F4C96003CB1AF /* DataReadPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataReadPoint.m; sourceTree = "<group>"; };
+		41068F371A13630E003CB1AF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		41068F391A16F826003CB1AF /* AAnalysisController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAnalysisController.h; path = F/AAnalysisController.h; sourceTree = "<group>"; };
+		41068F3A1A16F826003CB1AF /* AAnalysisController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAnalysisController.m; path = F/AAnalysisController.m; sourceTree = "<group>"; };
+		41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataRecord.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41068F381A13630E003CB1AF /* Accelerate.framework in Frameworks */,
 				41068F241A0DDC5D003CB1AF /* QuartzCore.framework in Frameworks */,
 				410681171A09F13C003CB1AF /* CoreMotion.framework in Frameworks */,
 				410680E11A09F0DA003CB1AF /* CoreGraphics.framework in Frameworks */,
@@ -202,6 +210,7 @@
 		410680DD1A09F0DA003CB1AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41068F371A13630E003CB1AF /* Accelerate.framework */,
 				41068F231A0DDC5D003CB1AF /* QuartzCore.framework */,
 				410681161A09F13C003CB1AF /* CoreMotion.framework */,
 				410680DE1A09F0DA003CB1AF /* Foundation.framework */,
@@ -218,6 +227,9 @@
 				410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */,
 				410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */,
 				410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */,
+				41068F391A16F826003CB1AF /* AAnalysisController.h */,
+				41068F3A1A16F826003CB1AF /* AAnalysisController.m */,
+				41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */,
 				41068F251A0DE105003CB1AF /* ScatterPlotViewController.h */,
 				41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */,
 				410680F31A09F0DA003CB1AF /* Main_iPad.storyboard */,
@@ -454,9 +466,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */,
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */,
 				41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */,
+				41068F3B1A16F826003CB1AF /* AAnalysisController.m in Sources */,
 				410680EB1A09F0DA003CB1AF /* main.m in Sources */,
 				41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */,
 				410680F81A09F0DA003CB1AF /* CCViewController.m in Sources */,
@@ -610,6 +624,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -633,6 +648,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -698,6 +714,7 @@
 				410681121A09F0DB003CB1AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		410681131A09F0DB003CB1AF /* Build configuration list for PBXNativeTarget "VibrateAnalysisTests" */ = {
 			isa = XCConfigurationList;
@@ -706,8 +723,22 @@
 				410681151A09F0DB003CB1AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */,
+			);
+			currentVersion = 41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */;
+			path = DataRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 410680D31A09F0DA003CB1AF /* Project object */;
 }

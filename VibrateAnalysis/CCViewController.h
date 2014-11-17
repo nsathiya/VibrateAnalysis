@@ -20,7 +20,7 @@ double currentMaxRotY;
 double currentMaxRotZ;
 
 
-@interface CCViewController : UIViewController <CPTPlotDataSource>
+@interface CCViewController : UIViewController //<CPTPlotDataSource>
 - (IBAction)toGraph:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *accX;
 @property (strong, nonatomic) IBOutlet UILabel *accY;
