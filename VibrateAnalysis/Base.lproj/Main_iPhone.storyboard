@@ -154,7 +154,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sht-LC-w1d">
                                 <rect key="frame" x="370" y="120" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,7 +164,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-Ab-vjZ">
                                 <rect key="frame" x="370" y="190" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,7 +174,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="sAm-Jh-Bui"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -192,9 +189,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="-257"/>
+            <point key="canvasLocation" x="1204" y="-373"/>
         </scene>
-        <!--History Table View Controller - History-->
+        <!--History-->
         <scene sceneID="py6-PJ-pEZ">
             <objects>
                 <tableViewController id="6pa-IT-e0j" customClass="HistoryTableViewController" sceneMemberID="viewController">
@@ -202,7 +199,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="sectionIndexColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="MYy-vD-fqo">
@@ -227,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FX-wt-zGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="204"/>
+            <point key="canvasLocation" x="2075" y="-118"/>
         </scene>
         <!--Scatter Plot View Controller-->
         <scene sceneID="Or3-zr-BcT">
@@ -243,7 +239,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J1-nb-wgL">
                                 <rect key="frame" x="20" y="280" width="528" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.052002762510000002" green="0.67665454999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start Recording">
@@ -261,7 +256,6 @@
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1Z-OJ-ixw">
                                 <rect key="frame" x="0.0" y="64" width="568" height="208"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -277,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0o0-EV-C1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="-257"/>
+            <point key="canvasLocation" x="2075" y="-563"/>
         </scene>
         <!--Medications-->
         <scene sceneID="V9g-gZ-5jh">
@@ -313,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f48-qP-afp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="413"/>
+            <point key="canvasLocation" x="1362" y="567"/>
         </scene>
         <!--Individual Medication View Controller-->
         <scene sceneID="yOU-3y-tXB">
@@ -399,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asl-L5-N1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="1184"/>
+            <point key="canvasLocation" x="1362" y="1284"/>
         </scene>
         <!--Add Alert-->
         <scene sceneID="xHt-qd-pYK">
@@ -439,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sh2-GR-Mhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="1185"/>
+            <point key="canvasLocation" x="1863" y="1284"/>
         </scene>
         <!--Add Medication-->
         <scene sceneID="kyY-Tq-4Uf">
@@ -507,9 +501,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeA-nt-g1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="413"/>
+            <point key="canvasLocation" x="1863" y="567"/>
         </scene>
-        <!--Analysis Controller - Frequency Analysis-->
+        <!--Frequency Analysis-->
         <scene sceneID="swc-pl-oVg">
             <objects>
                 <viewController id="MAG-i0-aIv" customClass="AAnalysisController" sceneMemberID="viewController">
@@ -523,12 +517,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2D-Sz-TVo">
                                 <rect key="frame" x="0.0" y="66" width="568" height="254"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Frequency Analysis" id="cok-VM-1hy"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -538,9 +530,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvJ-z6-3oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2194" y="-257"/>
+            <point key="canvasLocation" x="2791" y="-563"/>
         </scene>
-        <!--Frequency View Controller - Frequency Analysis-->
+        <!--Frequency Analysis-->
         <scene sceneID="IA8-XD-YU4">
             <objects>
                 <viewController id="dQA-dW-ikT" customClass="FrequencyViewController" sceneMemberID="viewController">
@@ -554,12 +546,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30l-Md-0tm">
                                 <rect key="frame" x="0.0" y="65" width="568" height="254"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Frequency Analysis" id="Lvg-23-eZZ"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -569,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1m-Um-7dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052" y="5"/>
+            <point key="canvasLocation" x="3532" y="-123"/>
         </scene>
         <!--Acceleration View Controller-->
         <scene sceneID="RZi-9G-0dC">
@@ -585,7 +575,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-P6-XRW">
                                 <rect key="frame" x="20" y="279" width="528" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.052002762510000002" green="0.67665454999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Frequency Analysis">
@@ -603,12 +592,10 @@
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6c-Qt-GVm">
                                 <rect key="frame" x="0.0" y="63" width="568" height="208"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="9S1-gi-cb5"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -619,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcE-Is-JGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="204"/>
+            <point key="canvasLocation" x="2791" y="-118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ZF-XM-ojS">
@@ -635,7 +622,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcY-T6-ckb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="63"/>
+            <point key="canvasLocation" x="-3" y="123"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VGX-98-jLb">
@@ -674,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amb-a9-4BJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-394"/>
+            <point key="canvasLocation" x="436" y="123"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
