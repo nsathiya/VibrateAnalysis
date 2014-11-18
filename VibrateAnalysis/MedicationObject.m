@@ -18,7 +18,6 @@
         self.name = name;
         self.dosage = dosage;
         self.alerts = [[NSMutableArray alloc]init];
-        [self.alerts addObject:[NSDate date]];
     }
     return self;
 }

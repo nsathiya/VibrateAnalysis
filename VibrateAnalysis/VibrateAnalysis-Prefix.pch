@@ -14,4 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "CorePlot-CocoaTouch.h"
+    #include <Accelerate/Accelerate.h>
+    #include <CoreData/CoreData.h> 
 #endif
