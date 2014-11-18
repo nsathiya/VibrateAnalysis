@@ -28,10 +28,6 @@
 {
     [super viewDidAppear:animated];
     
-    [[UIDevice currentDevice] setValue:
-     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
-                                forKey:@"orientation"];
-    
     [self.tableView reloadData];
 }
 
