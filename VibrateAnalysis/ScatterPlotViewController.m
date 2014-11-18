@@ -26,13 +26,6 @@ NSTimer *timer;
 
 - (IBAction)startRecording:(id)sender {
 	// Do any additional setup after loading the view, typically from a nib.
-    currentMaxAccelX = 0;
-    currentMaxAccelY = 0;
-    currentMaxAccelZ = 0;
-    
-    currentMaxRotX = 0;
-    currentMaxRotY = 0;
-    currentMaxRotZ = 0;
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .2;

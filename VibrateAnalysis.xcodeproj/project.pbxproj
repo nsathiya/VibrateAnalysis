@@ -40,6 +40,7 @@
 		89CE70351A134C5900D92B21 /* IndividualMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */; };
 		89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* MedicationObject.m */; };
 		89F242301A18407600E93527 /* AddAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2422F1A18407600E93527 /* AddAlertViewController.m */; };
+		41F4D05A1A1B283A00274903 /* graphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0591A1B283A00274903 /* graphCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,8 @@
 		89CE70371A134D3600D92B21 /* MedicationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationObject.m; sourceTree = "<group>"; };
 		89F2422E1A18407600E93527 /* AddAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAlertViewController.h; sourceTree = "<group>"; };
 		89F2422F1A18407600E93527 /* AddAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlertViewController.m; sourceTree = "<group>"; };
+		41F4D0581A1B283A00274903 /* graphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphCell.h; sourceTree = "<group>"; };
+		41F4D0591A1B283A00274903 /* graphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +282,9 @@
 				41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */,
 				41068F251A0DE105003CB1AF /* ScatterPlotViewController.h */,
 				41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */,
+				41F4D0581A1B283A00274903 /* graphCell.h */,
+				41F4D0591A1B283A00274903 /* graphCell.m */,
+				410680F31A09F0DA003CB1AF /* Main_iPad.storyboard */,
 				410680F61A09F0DA003CB1AF /* CCViewController.h */,
 				410680F71A09F0DA003CB1AF /* CCViewController.m */,
 				410680F91A09F0DA003CB1AF /* Images.xcassets */,
@@ -520,6 +526,7 @@
 				41F4D0511A1A107800274903 /* HistoryTableViewController.m in Sources */,
 				41F4D0571A1AA5D200274903 /* FrequencyViewController.m in Sources */,
 				41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */,
+				41F4D05A1A1B283A00274903 /* graphCell.m in Sources */,
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				89F242301A18407600E93527 /* AddAlertViewController.m in Sources */,
 				898FF0141A1B324A008DCB99 /* MainViewController.m in Sources */,
