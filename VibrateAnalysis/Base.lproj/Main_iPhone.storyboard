@@ -152,48 +152,82 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muf-We-Sz3">
-                                <rect key="frame" x="417" y="114" width="40" height="30"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetMaxValues:" destination="vXZ-lx-hvc" eventType="touchDown" id="bK0-jM-De4"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sht-LC-w1d">
-                                <rect key="frame" x="416" y="158" width="43" height="30"/>
-                                <state key="normal" title="Graph">
+                                <rect key="frame" x="370" y="120" width="178" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="toGraph:" destination="vXZ-lx-hvc" eventType="touchDown" id="OgR-4y-GTR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-Ab-vjZ">
+                                <rect key="frame" x="370" y="190" width="178" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6pa-IT-e0j" kind="push" id="p6m-Wc-SRq"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="sAm-Jh-Bui"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="accX" destination="qSm-72-OBC" id="X8H-oB-wt5"/>
-                        <outlet property="accY" destination="JEk-2z-csr" id="ymB-QM-TVn"/>
-                        <outlet property="accZ" destination="K7g-EB-JvK" id="dPO-ks-vGv"/>
                         <outlet property="maxAccX" destination="aL2-bh-IiR" id="spq-gB-FAJ"/>
                         <outlet property="maxAccY" destination="2oJ-0u-fG5" id="72x-Ka-Zzn"/>
                         <outlet property="maxAccZ" destination="DTX-NO-fN1" id="udj-Vi-iZu"/>
                         <outlet property="maxRotX" destination="DNe-Oy-v3h" id="ijG-LZ-NB5"/>
                         <outlet property="maxRotY" destination="Ip7-yE-2AZ" id="soI-57-FkP"/>
                         <outlet property="maxRotZ" destination="v0h-Aa-5Aq" id="KgF-fQ-UKW"/>
-                        <outlet property="rotX" destination="FLY-Ot-MQL" id="tbm-l0-uba"/>
-                        <outlet property="rotY" destination="Flr-oR-ThK" id="but-aK-aLs"/>
-                        <outlet property="rotZ" destination="fpS-6q-mvt" id="8id-p1-k1Q"/>
                         <segue destination="7nF-BX-hrn" kind="push" identifier="toGraph" id="deV-PV-wWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-323"/>
+            <point key="canvasLocation" x="780" y="-257"/>
+        </scene>
+        <!--History Table View Controller - History-->
+        <scene sceneID="py6-PJ-pEZ">
+            <objects>
+                <tableViewController id="6pa-IT-e0j" customClass="HistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dYq-Ct-3Lq">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <color key="sectionIndexColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="MYy-vD-fqo">
+                                <rect key="frame" x="0.0" y="86" width="568" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYy-vD-fqo" id="qNu-2D-ZGX">
+                                    <rect key="frame" x="0.0" y="0.0" width="535" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HYK-Da-6c8" kind="push" identifier="showGraph" id="i80-ga-GDg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6pa-IT-e0j" id="3zb-Cw-hna"/>
+                            <outlet property="delegate" destination="6pa-IT-e0j" id="irv-Ia-D4U"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="sZm-wV-ebD"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5FX-wt-zGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485" y="204"/>
         </scene>
         <!--Scatter Plot View Controller-->
         <scene sceneID="Or3-zr-BcT">
@@ -206,14 +240,44 @@
                     <view key="view" contentMode="scaleToFill" id="NeB-Kj-7Oh">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J1-nb-wgL">
+                                <rect key="frame" x="20" y="280" width="528" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.052002762510000002" green="0.67665454999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Start Recording">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startRecording:" destination="7nF-BX-hrn" eventType="touchDown" id="gWa-Cv-VRD"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1Z-OJ-ixw">
+                                <rect key="frame" x="0.0" y="64" width="568" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kx0-wx-UEw"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="graphView" destination="r1Z-OJ-ixw" id="Ivg-Bq-zIB"/>
+                        <outlet property="oneClickLabel" destination="8J1-nb-wgL" id="oG1-NU-ljC"/>
+                        <segue destination="MAG-i0-aIv" kind="push" identifier="MPAnalysis" id="FRs-0E-aed"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0o0-EV-C1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2232" y="-305"/>
+            <point key="canvasLocation" x="1485" y="-257"/>
         </scene>
         <!--Medications-->
         <scene sceneID="V9g-gZ-5jh">
@@ -445,6 +509,118 @@
             </objects>
             <point key="canvasLocation" x="1863" y="413"/>
         </scene>
+        <!--Analysis Controller - Frequency Analysis-->
+        <scene sceneID="swc-pl-oVg">
+            <objects>
+                <viewController id="MAG-i0-aIv" customClass="AAnalysisController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tsB-En-kEx"/>
+                        <viewControllerLayoutGuide type="bottom" id="uuo-d9-NLL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wxZ-Q4-y8w">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2D-Sz-TVo">
+                                <rect key="frame" x="0.0" y="66" width="568" height="254"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Frequency Analysis" id="cok-VM-1hy"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="graphView" destination="T2D-Sz-TVo" id="vwI-xL-j7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvJ-z6-3oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194" y="-257"/>
+        </scene>
+        <!--Frequency View Controller - Frequency Analysis-->
+        <scene sceneID="IA8-XD-YU4">
+            <objects>
+                <viewController id="dQA-dW-ikT" customClass="FrequencyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ql2-BU-Eif"/>
+                        <viewControllerLayoutGuide type="bottom" id="pYy-xk-nZX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="emm-zR-3uZ">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30l-Md-0tm">
+                                <rect key="frame" x="0.0" y="65" width="568" height="254"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Frequency Analysis" id="Lvg-23-eZZ"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="graphView" destination="30l-Md-0tm" id="tfw-zl-uby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1m-Um-7dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3052" y="5"/>
+        </scene>
+        <!--Acceleration View Controller-->
+        <scene sceneID="RZi-9G-0dC">
+            <objects>
+                <viewController id="HYK-Da-6c8" customClass="AccelerationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sQk-JY-Lwn"/>
+                        <viewControllerLayoutGuide type="bottom" id="LIm-eV-R6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wcq-Zq-4pJ">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-P6-XRW">
+                                <rect key="frame" x="20" y="279" width="528" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.052002762510000002" green="0.67665454999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Frequency Analysis">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="analysisButton:" destination="HYK-Da-6c8" eventType="touchDown" id="T3X-JS-lK8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6c-Qt-GVm">
+                                <rect key="frame" x="0.0" y="63" width="568" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9S1-gi-cb5"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="graphView" destination="C6c-Qt-GVm" id="AJR-k2-zW9"/>
+                        <segue destination="dQA-dW-ikT" kind="push" identifier="FrequencyAnalysis" id="xb8-Xj-BU6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NcE-Is-JGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207" y="204"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ZF-XM-ojS">
             <objects>
@@ -498,7 +674,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amb-a9-4BJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="63"/>
+            <point key="canvasLocation" x="334" y="-394"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
