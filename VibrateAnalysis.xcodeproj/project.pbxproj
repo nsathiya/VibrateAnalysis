@@ -26,12 +26,6 @@
 		41068F271A0DE105003CB1AF /* ScatterPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F261A0DE105003CB1AF /* ScatterPlotViewController.m */; };
 		41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */; };
 		41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F351A0F4C96003CB1AF /* DataReadPoint.m */; };
-		896120EC1A1549CD0043DCAC /* AddMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */; };
-		89CE70271A12FDD300D92B21 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */; };
-		89CE70321A13443400D92B21 /* MedicationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70311A13443400D92B21 /* MedicationTableViewController.m */; };
-		89CE70351A134C5900D92B21 /* IndividualMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */; };
-		89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* MedicationObject.m */; };
-		89F242301A18407600E93527 /* AddAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2422F1A18407600E93527 /* AddAlertViewController.m */; };
 		41068F381A13630E003CB1AF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41068F371A13630E003CB1AF /* Accelerate.framework */; };
 		41068F3B1A16F826003CB1AF /* AAnalysisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F3A1A16F826003CB1AF /* AAnalysisController.m */; };
 		41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */; };
@@ -39,6 +33,13 @@
 		41F4D0511A1A107800274903 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0501A1A107800274903 /* HistoryTableViewController.m */; };
 		41F4D0541A1A93BC00274903 /* AccelerationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0531A1A93BC00274903 /* AccelerationViewController.m */; };
 		41F4D0571A1AA5D200274903 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0561A1AA5D200274903 /* FrequencyViewController.m */; };
+		896120EC1A1549CD0043DCAC /* AddMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */; };
+		898FF0141A1B324A008DCB99 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898FF0131A1B324A008DCB99 /* MainViewController.m */; };
+		89CE70271A12FDD300D92B21 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE70261A12FDD300D92B21 /* libCorePlot-CocoaTouch.a */; };
+		89CE70321A13443400D92B21 /* MedicationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70311A13443400D92B21 /* MedicationTableViewController.m */; };
+		89CE70351A134C5900D92B21 /* IndividualMedicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70341A134C5900D92B21 /* IndividualMedicationViewController.m */; };
+		89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE70371A134D3600D92B21 /* MedicationObject.m */; };
+		89F242301A18407600E93527 /* AddAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F2422F1A18407600E93527 /* AddAlertViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +80,21 @@
 		41068F321A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		41068F341A0F4C96003CB1AF /* DataReadPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataReadPoint.h; sourceTree = "<group>"; };
 		41068F351A0F4C96003CB1AF /* DataReadPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataReadPoint.m; sourceTree = "<group>"; };
+		41068F371A13630E003CB1AF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		41068F391A16F826003CB1AF /* AAnalysisController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAnalysisController.h; path = F/AAnalysisController.h; sourceTree = "<group>"; };
+		41068F3A1A16F826003CB1AF /* AAnalysisController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAnalysisController.m; path = F/AAnalysisController.m; sourceTree = "<group>"; };
+		41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataRecord.xcdatamodel; sourceTree = "<group>"; };
+		41F4D04D1A199C2200274903 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		41F4D04F1A1A107800274903 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		41F4D0501A1A107800274903 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		41F4D0521A1A93BC00274903 /* AccelerationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationViewController.h; sourceTree = "<group>"; };
+		41F4D0531A1A93BC00274903 /* AccelerationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationViewController.m; sourceTree = "<group>"; };
+		41F4D0551A1AA5D200274903 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
+		41F4D0561A1AA5D200274903 /* FrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyViewController.m; sourceTree = "<group>"; };
 		896120EA1A1549CD0043DCAC /* AddMedicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMedicationViewController.h; sourceTree = "<group>"; };
 		896120EB1A1549CD0043DCAC /* AddMedicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMedicationViewController.m; sourceTree = "<group>"; };
+		898FF0121A1B324A008DCB99 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		898FF0131A1B324A008DCB99 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		89CE6FD81A12FDD300D92B21 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		89CE6FD91A12FDD300D92B21 /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		89CE6FDA1A12FDD300D92B21 /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -168,17 +182,6 @@
 		89CE70371A134D3600D92B21 /* MedicationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationObject.m; sourceTree = "<group>"; };
 		89F2422E1A18407600E93527 /* AddAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAlertViewController.h; sourceTree = "<group>"; };
 		89F2422F1A18407600E93527 /* AddAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlertViewController.m; sourceTree = "<group>"; };
-		41068F371A13630E003CB1AF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		41068F391A16F826003CB1AF /* AAnalysisController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAnalysisController.h; path = F/AAnalysisController.h; sourceTree = "<group>"; };
-		41068F3A1A16F826003CB1AF /* AAnalysisController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAnalysisController.m; path = F/AAnalysisController.m; sourceTree = "<group>"; };
-		41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataRecord.xcdatamodel; sourceTree = "<group>"; };
-		41F4D04D1A199C2200274903 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		41F4D04F1A1A107800274903 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
-		41F4D0501A1A107800274903 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
-		41F4D0521A1A93BC00274903 /* AccelerationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationViewController.h; sourceTree = "<group>"; };
-		41F4D0531A1A93BC00274903 /* AccelerationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationViewController.m; sourceTree = "<group>"; };
-		41F4D0551A1AA5D200274903 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
-		41F4D0561A1AA5D200274903 /* FrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 			children = (
 				410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */,
 				410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */,
+				898FF0121A1B324A008DCB99 /* MainViewController.h */,
+				898FF0131A1B324A008DCB99 /* MainViewController.m */,
 				410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */,
 				89CE70301A13443400D92B21 /* MedicationTableViewController.h */,
 				89CE70311A13443400D92B21 /* MedicationTableViewController.m */,
@@ -517,6 +522,7 @@
 				41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */,
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				89F242301A18407600E93527 /* AddAlertViewController.m in Sources */,
+				898FF0141A1B324A008DCB99 /* MainViewController.m in Sources */,
 				41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */,
 				89CE70381A134D3600D92B21 /* MedicationObject.m in Sources */,
 				41068F361A0F4C96003CB1AF /* DataReadPoint.m in Sources */,
@@ -668,7 +674,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -692,7 +699,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
