@@ -304,6 +304,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f48-qP-afp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
