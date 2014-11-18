@@ -1,30 +1,23 @@
 //
-//  AAnalysisController.m
+//  AccelerationViewController.m
 //  VibrateAnalysis
 //
-//  Created by Naren Sathiya on 11/14/14.
+//  Created by Naren Sathiya on 11/17/14.
 //  Copyright (c) 2014 Naren Sathiya. All rights reserved.
 //
 
-#import "AAnalysisController.h"
+#import "AccelerationViewController.h"
 
-@interface AAnalysisController ()
+@interface AccelerationViewController ()
 
 @end
 
-@implementation AAnalysisController
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-float *magnitude;
-float *phase_lev;
+@implementation AccelerationViewController
 
 @synthesize hostView = hostView_;
-
+@synthesize accelx;
+@synthesize accely;
+@synthesize accelz;
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -32,133 +25,10 @@ float *phase_lev;
 }
 
 - (void) initPlot {
-    [self configureAnalysis];
     [self configureHost];
     [self configureGraph];
     [self configurePlots];
     [self configureAxes];
-}
-
-- (void) configureAnalysis{
-    NSInteger count = [self.dataQueue count];
-    NSLog(@"count is %li", (long)count);
-    const int LOG_N = 6; // Typically this would be at least 10 (i.e. 1024pt FFTs)
-    const int N = (int) count; //1 << LOG_N;
-    const float PI = 4*atan(1);
-    
-    // Set up a data structure with pre-calculated values for
-    // doing a very fast FFT. The structure is opaque, but presumably
-    // includes sin/cos twiddle factors, and a lookup table for converting
-    // to/from bit-reversed ordering. Normally you'd create this once
-    // in your application, then use it for many (hundreds! thousands!) of
-    // forward and inverse FFTs.
-    FFTSetup fftSetup = vDSP_create_fftsetup(LOG_N, kFFTRadix2);
-    
-    // -------------------------------
-    // Set up a bunch of buffers
-    
-    // Buffers for real (time-domain) input and output signals.
-    float *data = (float *) malloc(N * sizeof(float));
-    float *y = (float *) malloc(N * sizeof(float));
-    
-    // Initialize the input buffer with a sinusoid
-    //int BIN = 3;
-    for (int k = 0; k < N; k++)
-    {
-        float x = pow([[self.dataQueue objectAtIndex:k] AccelX], 2);
-        float y = pow([[self.dataQueue objectAtIndex:k] AccelY], 2);
-        float z = pow([[self.dataQueue objectAtIndex:k] AccelZ], 2);
-        data[k] = sqrt(x + y + z);
-    }
-    
-    // We need complex buffers in two different formats!
-    //DSPComplex *tempComplex = new DSPComplex[N/2];
-    
-    DSPSplitComplex tempSplitComplex;
-    tempSplitComplex.realp = (float *) malloc(N/2 * sizeof(float));
-    tempSplitComplex.imagp = (float *) malloc(N/2 * sizeof(float));
-    
-    // For polar coordinates
-    //float *mag = float[N/2];
-    //float *phase = float[N/2];
-    float *mag = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-    float *phase = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-    magnitude = (float *) malloc (N * sizeof(float)); //[[NSMutableArray alloc] init];
-    //phase_lev = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-    
-    // ----------------------------------------------------------------
-    // Forward FFT
-    
-    // Scramble-pack the real data into complex buffer in just the way that's
-    // required by the real-to-complex FFT function that follows.
-    vDSP_ctoz((COMPLEX *)data, 2, &tempSplitComplex, 1, N/2);
-    
-    // Do real->complex forward FFT
-    vDSP_fft_zrip(fftSetup, &tempSplitComplex, 1, LOG_N, kFFTDirection_Forward);
-    
-    // Print the complex spectrum. Note that since it's the FFT of a real signal,
-    // the spectrum is conjugate symmetric, that is the negative frequency components
-    // are complex conjugates of the positive frequencies. The real->complex FFT
-    // therefore only gives us the positive half of the spectrum from bin 0 ("DC")
-    // to bin N/2 (Nyquist frequency, i.e. half the sample rate). Typically with
-    // audio code, you don't need to worry much about the DC and Nyquist values, as
-    // they'll be very close to zero if you're doing everything else correctly.
-    //
-    // Bins 0 and N/2 both necessarily have zero phase, so in the packed format
-    // only the real values are output, and these are stuffed into the real/imag components
-    // of the first complex value (even though they are both in fact real values). Try
-    // replacing BIN above with N/2 to see how sinusoid at Nyquist appears in the spectrum.
-    printf("\nSpectrum:\n");
-    for (int k = 0; k < N/2; k++)
-    {
-        printf("%3d\t%6.2f\t%6.2f\n", k, tempSplitComplex.realp[k], tempSplitComplex.imagp[k]);
-    }
-    
-    // ----------------------------------------------------------------
-    // Convert from complex/rectangular (real, imaginary) coordinates
-    // to polar (magnitude and phase) coordinates.
-    
-    // Compute magnitude and phase. Can also be done using vDSP_polar.
-    // Note that when printing out the values below, we ignore bin zero, as the
-    // real/complex values for bin zero in tempSplitComplex actually both correspond
-    // to real spectrum values for bins 0 (DC) and N/2 (Nyquist) respectively.
-    vDSP_zvabs(&tempSplitComplex, 1, mag, 1, N/2);
-    vDSP_zvphas(&tempSplitComplex, 1, phase, 1, N/2);
-    
-    printf("\nMag / Phase:\n");
-    for (int k = 1; k < N/2; k++)
-    {
-        printf("%3d\t%6.2f\t%6.2f\n", k, mag[k], phase[k]);
-        //magnitude[k] = tempSplitComplex.realp[k]; //realp[k]; //mag[k];
-        //phase_lev[k] = tempSplitComplex.imagp[k]; //phase[k];
-    }
-    
-    tempSplitComplex.realp = mag;
-    tempSplitComplex.imagp = phase;
-
-    DSPComplex *tempComplex = (DSPComplex *) malloc(N * sizeof(float));
-    
-    vDSP_ztoc(&tempSplitComplex, 1, tempComplex, 2, N/2);
-    vDSP_rect((float*) tempComplex, 2, (float*)tempComplex, 2, N/2);
-    vDSP_ctoz(tempComplex, 2, &tempSplitComplex, 1, N/2);
-    
-    vDSP_fft_zrip(fftSetup, &tempSplitComplex, 1, LOG_N, kFFTDirection_Inverse);
-    
-    // This leaves result in packed format. Here we unpack it into a real vector.
-    vDSP_ztoc(&tempSplitComplex, 1, (DSPComplex*)y, 2, N/2);
-    
-    // Neither the forward nor inverse FFT does any scaling. Here we compensate for that.
-    float scale = 1.0/N;
-    vDSP_vsmul(y, 1, &scale, y, 1, N);
-    
-    // Assuming it's all correct, the input x and output y vectors will have identical values
-    printf("\nInput & output:\n");
-    for (int k = 0; k < N; k++)
-    {
-        printf("%3d\t%6.2f\t%6.2f\n", k, data[k], y[k]);
-        magnitude[k] = (y[k] - 1) * 2;
-    }
-    
 }
 
 - (void) configureHost {
@@ -176,7 +46,7 @@ float *phase_lev;
     self.hostView.hostedGraph = graph;
     
     //Set graph title
-    NSString *title = @"Frequency | Time";
+    NSString *title = @"X-Y-Z Acceleration | Time";
     graph.title = title;
     
     //Create and set text style
@@ -205,28 +75,68 @@ float *phase_lev;
     // 1 - Get graph and plot space
     CPTGraph *graph = self.hostView.hostedGraph;
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    //plotSpace.delegate = self; //COMMENT THIS OUT TO MOVE Y AXIS
+    plotSpace.delegate = self; //COMMENT THIS OUT TO MOVE Y AXIS
     
     
     // 2 - Create the three plots
-    CPTBarPlot *mpPlot = [[CPTBarPlot alloc] init];
-    mpPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithComponentRed:128 green:0 blue:0 alpha:1] horizontalBars:NO];
-    mpPlot.dataSource = self;
-    mpPlot.identifier = @"M/P Analysis";
-    mpPlot.barWidth = CPTDecimalFromDouble(0.8);
+    CPTScatterPlot *xPlot = [[CPTScatterPlot alloc] init];
+    xPlot.dataSource = self;
+    xPlot.identifier = @"xPlot";
+    CPTColor *xColor = [CPTColor redColor];
+    [graph addPlot:xPlot toPlotSpace:plotSpace];
+    
+    CPTScatterPlot *yPlot = [[CPTScatterPlot alloc] init];
+    yPlot.dataSource = self;
+    yPlot.identifier = @"yPlot";
+    CPTColor *yColor = [CPTColor greenColor];
+    [graph addPlot:yPlot toPlotSpace:plotSpace];
+    
+    CPTScatterPlot *zPlot = [[CPTScatterPlot alloc] init];
+    zPlot.dataSource = self;
+    zPlot.identifier = @"zPlot";
+    CPTColor *zColor = [CPTColor blueColor];
+    [graph addPlot:zPlot toPlotSpace:plotSpace];
     
     // 3 - Set up plot space
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -0.5 ) length:CPTDecimalFromFloat( 6.0 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -1 ) length:CPTDecimalFromFloat( 40 )]];
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -2.0 ) length:CPTDecimalFromFloat( 4.0 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 16 )]];
     
     // 4 - Create styles and symbols
-    CPTMutableLineStyle *mpLineStyle = [[CPTMutableLineStyle alloc] init];
-    CPTColor *mpColor = [CPTColor lightGrayColor];
-    mpLineStyle.lineWidth = 0.5;
-    mpLineStyle.lineColor = mpColor;
-    mpPlot.lineStyle = mpLineStyle;
+    CPTMutableLineStyle *xLineStyle = [xPlot.dataLineStyle mutableCopy];
+    xLineStyle.lineWidth = 2.5;
+    xLineStyle.lineColor = xColor;
+    xPlot.dataLineStyle = xLineStyle;
+    CPTMutableLineStyle *xSymbolLineStyle = [CPTMutableLineStyle lineStyle];
+    xSymbolLineStyle.lineColor = xColor;
+    CPTPlotSymbol *xSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    xSymbol.fill = [CPTFill fillWithColor:xColor];
+    xSymbol.lineStyle = xSymbolLineStyle;
+    xSymbol.size = CGSizeMake(6.0f, 6.0f);
+    xPlot.plotSymbol = xSymbol;
     
-    [graph addPlot:mpPlot toPlotSpace:plotSpace];
+    CPTMutableLineStyle *yLineStyle = [yPlot.dataLineStyle mutableCopy];
+    yLineStyle.lineWidth = 2.5;
+    yLineStyle.lineColor = yColor;
+    yPlot.dataLineStyle = yLineStyle;
+    CPTMutableLineStyle *ySymbolLineStyle = [CPTMutableLineStyle lineStyle];
+    ySymbolLineStyle.lineColor = yColor;
+    CPTPlotSymbol *ySymbol = [CPTPlotSymbol starPlotSymbol];
+    ySymbol.fill = [CPTFill fillWithColor:yColor];
+    ySymbol.lineStyle = ySymbolLineStyle;
+    ySymbol.size = CGSizeMake(6.0f, 6.0f);
+    yPlot.plotSymbol = ySymbol;
+    
+    CPTMutableLineStyle *zLineStyle = [zPlot.dataLineStyle mutableCopy];
+    zLineStyle.lineWidth = 2.5;
+    zLineStyle.lineColor = zColor;
+    zPlot.dataLineStyle = zLineStyle;
+    CPTMutableLineStyle *zSymbolLineStyle = [CPTMutableLineStyle lineStyle];
+    zSymbolLineStyle.lineColor = zColor;
+    CPTPlotSymbol *zSymbol = [CPTPlotSymbol diamondPlotSymbol];
+    zSymbol.fill = [CPTFill fillWithColor:zColor];
+    zSymbol.lineStyle = zSymbolLineStyle;
+    zSymbol.size = CGSizeMake(6.0f, 6.0f);
+    zPlot.plotSymbol = zSymbol;
 }
 
 - (void) configureAxes {
@@ -338,9 +248,33 @@ float *phase_lev;
      y.axisLabels = yLabels;
      y.majorTickLocations = yMajorLocations;
      y.minorTickLocations = yMinorLocations;
-     */
      
+     */
     
+}
+
+- (CPTPlotRange *)plotSpace:(CPTPlotSpace *)space willChangePlotRangeTo:(CPTPlotRange *)newRange
+              forCoordinate:(CPTCoordinate)coordinate {
+    
+    CPTPlotRange *updatedRange = nil;
+    
+    switch ( coordinate ) {
+        case CPTCoordinateX:
+            if (newRange.locationDouble < 0.0F) {
+                CPTMutablePlotRange *mutableRange = [newRange mutableCopy];
+                mutableRange.location = CPTDecimalFromFloat(0.0);
+                updatedRange = mutableRange;
+            }
+            else {
+                updatedRange = newRange;
+            }
+            break;
+        case CPTCoordinateY:
+            //SO Y AXIS Doesn't move
+            updatedRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -2.0 ) length:CPTDecimalFromFloat( 4.0 )];//((CPTXYPlotSpace *)space).yRange;
+            break;
+    }
+    return updatedRange;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -352,10 +286,10 @@ float *phase_lev;
     return self;
 }
 
-- (void)viewDidLoad
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -364,7 +298,7 @@ float *phase_lev;
 
 #pragma mark - PlotDataSourceDelegate methods
 - (NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
-    return [self.dataQueue count]/2;
+    return [self.accelx count];
 }
 
 - (NSNumber *) numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
@@ -374,23 +308,50 @@ float *phase_lev;
      return [NSDecimalNumber zero];
      }
      */
-     
     if(fieldEnum == CPTScatterPlotFieldX)
     {
-         //NSLog(@"phase is %lf", phase_lev[index]);
-        return [NSNumber numberWithInt:index];//[NSNumber numberWithFloat:phase_lev[index]];
+        return [NSNumber numberWithInt: index];
+        /*
+         NSLog(@"phase is %lf", phase_lev[index]);
+         return [NSNumber numberWithFloat:phase_lev[index]];
+         */
     } else {
-        if([plot.identifier isEqual:@"M/P Analysis"] == YES)
-         //NSLog(@"mag is %lf", magnitude[index]);
-         return [NSNumber numberWithFloat:magnitude[index]];
+        if([plot.identifier isEqual:@"xPlot"] == YES)
+        {
+            CGFloat x = (CGFloat) [[self.accelx objectAtIndex:index] floatValue];
+            return [NSNumber numberWithFloat:x];
+        }
+        else if([plot.identifier isEqual:@"yPlot"] == YES)
+        {
+            CGFloat y = (CGFloat) [[self.accely objectAtIndex:index] floatValue];
+            return [NSNumber numberWithFloat:y];
+        }
+        else if([plot.identifier isEqual:@"zPlot"] == YES)
+        {
+            CGFloat z = (CGFloat) [[self.accelz objectAtIndex:index] floatValue];
+            return [NSNumber numberWithFloat:z];
+        }
     }
     
     
     return [NSDecimalNumber zero];
+}
 
+- (IBAction)analysisButton:(id)sender {
+    [self performSegueWithIdentifier:@"FrequencyAnalysis" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"FrequencyAnalysis"])
+    {
+        FrequencyViewController *FVC = [segue destinationViewController];
+        [FVC setAccelX:self.accelx];
+        [FVC setAccelY:self.accely];
+        [FVC setAccelZ:self.accelz];
     }
+    
+}
 
 
 @end
-    
-

@@ -1,18 +1,18 @@
 //
-//  AAnalysisController.m
+//  FrequencyViewController.m
 //  VibrateAnalysis
 //
-//  Created by Naren Sathiya on 11/14/14.
+//  Created by Naren Sathiya on 11/17/14.
 //  Copyright (c) 2014 Naren Sathiya. All rights reserved.
 //
 
-#import "AAnalysisController.h"
+#import "FrequencyViewController.h"
 
-@interface AAnalysisController ()
+@interface FrequencyViewController ()
 
 @end
 
-@implementation AAnalysisController
+@implementation FrequencyViewController
 
 - (void)didReceiveMemoryWarning
 {
@@ -24,6 +24,9 @@ float *magnitude;
 float *phase_lev;
 
 @synthesize hostView = hostView_;
+@synthesize accelX;
+@synthesize accelY;
+@synthesize accelZ;
 
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -40,8 +43,8 @@ float *phase_lev;
 }
 
 - (void) configureAnalysis{
-    NSInteger count = [self.dataQueue count];
-    NSLog(@"count is %li", (long)count);
+    NSInteger count = [self.accelX count];
+    NSLog(@"the count in frequency analysis%i", count);
     const int LOG_N = 6; // Typically this would be at least 10 (i.e. 1024pt FFTs)
     const int N = (int) count; //1 << LOG_N;
     const float PI = 4*atan(1);
@@ -65,9 +68,9 @@ float *phase_lev;
     //int BIN = 3;
     for (int k = 0; k < N; k++)
     {
-        float x = pow([[self.dataQueue objectAtIndex:k] AccelX], 2);
-        float y = pow([[self.dataQueue objectAtIndex:k] AccelY], 2);
-        float z = pow([[self.dataQueue objectAtIndex:k] AccelZ], 2);
+        float x = pow([[self.accelX objectAtIndex:k] floatValue], 2);
+        float y = pow([[self.accelY objectAtIndex:k] floatValue], 2);
+        float z = pow([[self.accelZ objectAtIndex:k] floatValue], 2);
         data[k] = sqrt(x + y + z);
     }
     
@@ -135,7 +138,7 @@ float *phase_lev;
     
     tempSplitComplex.realp = mag;
     tempSplitComplex.imagp = phase;
-
+    
     DSPComplex *tempComplex = (DSPComplex *) malloc(N * sizeof(float));
     
     vDSP_ztoc(&tempSplitComplex, 1, tempComplex, 2, N/2);
@@ -339,7 +342,7 @@ float *phase_lev;
      y.majorTickLocations = yMajorLocations;
      y.minorTickLocations = yMinorLocations;
      */
-     
+    
     
 }
 
@@ -364,7 +367,7 @@ float *phase_lev;
 
 #pragma mark - PlotDataSourceDelegate methods
 - (NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
-    return [self.dataQueue count]/2;
+    return [self.accelX count]/2;
 }
 
 - (NSNumber *) numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
@@ -374,23 +377,18 @@ float *phase_lev;
      return [NSDecimalNumber zero];
      }
      */
-     
+    
     if(fieldEnum == CPTScatterPlotFieldX)
     {
-         //NSLog(@"phase is %lf", phase_lev[index]);
-        return [NSNumber numberWithInt:index];//[NSNumber numberWithFloat:phase_lev[index]];
+        return [NSNumber numberWithInt:index];
     } else {
         if([plot.identifier isEqual:@"M/P Analysis"] == YES)
-         //NSLog(@"mag is %lf", magnitude[index]);
-         return [NSNumber numberWithFloat:magnitude[index]];
+        return [NSNumber numberWithFloat:magnitude[index]];
     }
     
     
     return [NSDecimalNumber zero];
-
-    }
-
+    
+}
 
 @end
-    
-

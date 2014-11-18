@@ -12,12 +12,9 @@
 #import <CoreMotion/CoreMotion.h>
 
 @interface AAnalysisController : UIViewController  <CPTPlotDataSource, CPTPlotSpaceDelegate>
-@property NSMutableArray *dataQueue;
 
+@property NSMutableArray *dataQueue;
 @property (strong, nonatomic) IBOutlet UIView *graphView;
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
-
-
-@property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end

@@ -39,8 +39,11 @@ NSTimer *timer;
     self.motionManager.gyroUpdateInterval = .2;
     
     self.dataQueue = [[NSMutableArray alloc] init];
+    self.accelx = [[NSMutableArray alloc] init];
+    self.accely = [[NSMutableArray alloc] init];
+    self.accelz = [[NSMutableArray alloc] init];
     
-    seconds = 15;
+    seconds = 12;
     //self.countLabel.text = [NSString stringWithFormat:@"%i", seconds];
     [self.oneClickLabel setTitle:[NSString stringWithFormat:@"%i", seconds] forState:UIControlStateNormal];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
@@ -98,40 +101,24 @@ NSTimer *timer;
     drp.TimeStamp = [dateFormatter stringFromDate:date];
     
     [self.dataQueue enqueue:drp];
+    [self.accelx enqueue:[NSNumber numberWithDouble:acceleration.x]];
+    [self.accely enqueue:[NSNumber numberWithDouble:acceleration.y]];
+    [self.accelz enqueue:[NSNumber numberWithDouble:acceleration.z]];
     [self.hostView.hostedGraph reloadData];
     
+    float newX = [self.dataQueue count];
     
-}
-
--(void) outputRotationData:(CMRotationRate)rotation
-{
-    /*
-    self.rotX.text = [NSString stringWithFormat:@" %.2fr/s",rotation.x];
-    if(fabs(rotation.x) > fabs(currentMaxRotX))
+    if(seconds != 0)
     {
-        currentMaxRotX = rotation.x;
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.hostView.hostedGraph.defaultPlotSpace;
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(newX-8.0) length:CPTDecimalFromFloat(16.0)];
     }
-    self.rotY.text = [NSString stringWithFormat:@" %.2fr/s",rotation.y];
-    if(fabs(rotation.y) > fabs(currentMaxRotY))
-    {
-        currentMaxRotY = rotation.y;
-    }
-    self.rotZ.text = [NSString stringWithFormat:@" %.2fr/s",rotation.z];
-    if(fabs(rotation.z) > fabs(currentMaxRotZ))
-    {
-        currentMaxRotZ = rotation.z;
-    }
-    
-    self.maxRotX.text = [NSString stringWithFormat:@" %.2f",currentMaxRotX];
-    self.maxRotY.text = [NSString stringWithFormat:@" %.2f",currentMaxRotY];
-    self.maxRotZ.text = [NSString stringWithFormat:@" %.2f",currentMaxRotZ];
-    */
 }
 
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.oneClickLabel setTitle:[NSString stringWithFormat:@"Start Measuring"] forState:UIControlStateNormal];
+    [self.oneClickLabel setTitle:[NSString stringWithFormat:@"Start Recording"] forState:UIControlStateNormal];
     [self initPlot];
 }
 
@@ -153,21 +140,21 @@ NSTimer *timer;
     
     //Create the graph
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-    [graph applyTheme:[CPTTheme themeNamed:kCPTPlainBlackTheme]];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     self.hostView.hostedGraph = graph;
     
     //Set graph title
-    NSString *title = @"XYZ Acceleration";
+    NSString *title = @"X-Y-Z Acceleration | Time";
     graph.title = title;
     
     //Create and set text style
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-    titleStyle.color = [CPTColor whiteColor];
+    titleStyle.color = [CPTColor colorWithComponentRed:128 green:0 blue:0 alpha:1];
     titleStyle.fontName = @"Helvetica-Bold";
     titleStyle.fontSize = 16.0f;
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-    graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
+    graph.titleDisplacement = CGPointMake(0.0f, 22.0f);
     
     //Set padding for plot area
     [graph.plotAreaFrame setPaddingLeft:30.0f];
@@ -209,8 +196,10 @@ NSTimer *timer;
     [graph addPlot:zPlot toPlotSpace:plotSpace];
     
     // 3 - Set up plot space
-    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -1.5 ) length:CPTDecimalFromFloat( 3.0 )]];
-    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 10 )]];
+    float current_count = [self.dataQueue count];
+    NSLog(@"the current count is %f", current_count);
+    [plotSpace setYRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -2.0 ) length:CPTDecimalFromFloat( 4.0 )]];
+    [plotSpace setXRange: [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( 0 ) length:CPTDecimalFromFloat( 16 )]];
     
     // 4 - Create styles and symbols
     CPTMutableLineStyle *xLineStyle = [xPlot.dataLineStyle mutableCopy];
@@ -248,101 +237,6 @@ NSTimer *timer;
     zSymbol.lineStyle = zSymbolLineStyle;
     zSymbol.size = CGSizeMake(6.0f, 6.0f);
     zPlot.plotSymbol = zSymbol;
-    
-    /*
-    NSInteger count = [self.dataQueue count];
-    const int LOG_N = 4; // Typically this would be at least 10 (i.e. 1024pt FFTs)
-    const int N = (int) count; //1 << LOG_N;
-    const float PI = 4*atan(1);
-    
-        // Set up a data structure with pre-calculated values for
-        // doing a very fast FFT. The structure is opaque, but presumably
-        // includes sin/cos twiddle factors, and a lookup table for converting
-        // to/from bit-reversed ordering. Normally you'd create this once
-        // in your application, then use it for many (hundreds! thousands!) of
-        // forward and inverse FFTs.
-        FFTSetup fftSetup = vDSP_create_fftsetup(LOG_N, kFFTRadix2);
-        
-        // -------------------------------
-        // Set up a bunch of buffers
-        
-        // Buffers for real (time-domain) input and output signals.
-        float *data = (float *) malloc(N * sizeof(float));
-        //float *y = new float[N];
-        
-        // Initialize the input buffer with a sinusoid
-        //int BIN = 3;
-        for (int k = 0; k < N; k++)
-        {
-            float x = pow([[self.dataQueue objectAtIndex:k] AccelX], 2);
-            float y = pow([[self.dataQueue objectAtIndex:k] AccelY], 2);
-            float z = pow([[self.dataQueue objectAtIndex:k] AccelZ], 2);
-            data[k] = sqrt(x + y + z);
-        }
-    
-        // We need complex buffers in two different formats!
-        //DSPComplex *tempComplex = new DSPComplex[N/2];
-    
-        DSPSplitComplex tempSplitComplex;
-        tempSplitComplex.realp = (float *) malloc(N/2 * sizeof(float));
-        tempSplitComplex.imagp = (float *) malloc(N/2 * sizeof(float));
-        
-        // For polar coordinates
-        //float *mag = float[N/2];
-        //float *phase = float[N/2];
-        float *mag = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-        float *phase = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-        magnitude = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-        phase_lev = (float *) malloc (N/2 * sizeof(float)); //[[NSMutableArray alloc] init];
-    
-        // ----------------------------------------------------------------
-        // Forward FFT
-        
-        // Scramble-pack the real data into complex buffer in just the way that's
-        // required by the real-to-complex FFT function that follows.
-        vDSP_ctoz((COMPLEX *)data, 2, &tempSplitComplex, 1, N/2);
-    
-        // Do real->complex forward FFT
-        vDSP_fft_zrip(fftSetup, &tempSplitComplex, 1, LOG_N, kFFTDirection_Forward);
-        
-        // Print the complex spectrum. Note that since it's the FFT of a real signal,
-        // the spectrum is conjugate symmetric, that is the negative frequency components
-        // are complex conjugates of the positive frequencies. The real->complex FFT
-        // therefore only gives us the positive half of the spectrum from bin 0 ("DC")
-        // to bin N/2 (Nyquist frequency, i.e. half the sample rate). Typically with
-        // audio code, you don't need to worry much about the DC and Nyquist values, as
-        // they'll be very close to zero if you're doing everything else correctly.
-        //
-        // Bins 0 and N/2 both necessarily have zero phase, so in the packed format
-        // only the real values are output, and these are stuffed into the real/imag components
-        // of the first complex value (even though they are both in fact real values). Try
-        // replacing BIN above with N/2 to see how sinusoid at Nyquist appears in the spectrum.
-        printf("\nSpectrum:\n");
-        for (int k = 0; k < N/2; k++)
-        {
-            printf("%3d\t%6.2f\t%6.2f\n", k, tempSplitComplex.realp[k], tempSplitComplex.imagp[k]);
-        }
-        
-        // ----------------------------------------------------------------
-        // Convert from complex/rectangular (real, imaginary) coordinates
-        // to polar (magnitude and phase) coordinates.
-        
-        // Compute magnitude and phase. Can also be done using vDSP_polar.
-        // Note that when printing out the values below, we ignore bin zero, as the
-        // real/complex values for bin zero in tempSplitComplex actually both correspond
-        // to real spectrum values for bins 0 (DC) and N/2 (Nyquist) respectively.
-        vDSP_zvabs(&tempSplitComplex, 1, mag, 1, N/2);
-        vDSP_zvphas(&tempSplitComplex, 1, phase, 1, N/2);
-        
-        printf("\nMag / Phase:\n");
-        for (int k = 1; k < N/2; k++)
-        {
-            printf("%3d\t%6.2f\t%6.2f\n", k, mag[k], phase[k]);
-            magnitude[k] = mag[k];
-            phase_lev[k] = phase[k];
-        }
-     */
-    
 }
 
 - (void) configureAxes {
@@ -371,14 +265,24 @@ NSTimer *timer;
     CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
     tickLineStyle.lineColor = [CPTColor blackColor];
     tickLineStyle.lineWidth = 1.0f;
-    // 2 - Get axis set
+    
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
-    // 3 - Configure x-axis
+    
+    CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
+    axisTitleStyle.color = [CPTColor colorWithComponentRed:128 green:0 blue:0 alpha:1];
+    axisTitleStyle.fontName = @"Helvetica-Bold";
+    axisTitleStyle.fontSize = 12.0f;
+    CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
+    axisLineStyle.lineWidth = 2.0f;
+    axisLineStyle.lineColor = [CPTColor darkGrayColor];
     CPTAxis *x = axisSet.xAxis;
-    x.title = @"Day of Month";
+    x.title = @"Time";
     x.titleTextStyle = axisTitleStyle;
     x.titleOffset = 15.0f;
     x.axisLineStyle = axisLineStyle;
+    //float current_count = [self.dataQueue count];
+    //x.visibleRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat((NSInteger)current_count) length:CPTDecimalFromFloat((NSInteger)5.0)];
+    /*
     x.labelingPolicy = CPTAxisLabelingPolicyNone;
     x.labelTextStyle = axisTextStyle;
     x.majorTickLineStyle = axisLineStyle;
@@ -472,12 +376,17 @@ NSTimer *timer;
                 updatedRange = mutableRange;
             }
             else {
+               /*
+                float current_count = [self.dataQueue count];
+                updatedRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(current_count) length:CPTDecimalFromFloat(3.0)];
+                NSLog(@"the current count is %f", current_count);
+                */
                 updatedRange = newRange;
             }
             break;
         case CPTCoordinateY:
             //SO Y AXIS Doesn't move
-            updatedRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -1.5 ) length:CPTDecimalFromFloat( 3.0 )];//((CPTXYPlotSpace *)space).yRange;
+            updatedRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat( -2.0 ) length:CPTDecimalFromFloat( 4.0 )];//((CPTXYPlotSpace *)space).yRange;
             break;
     }
     return updatedRange;
@@ -500,28 +409,27 @@ NSTimer *timer;
     if(seconds == 0)
     {
         [timer invalidate];
-        /*
-        NSManagedObjectContext *context = [self managedObjectContext];
-        NSManagedObject *failedBankInfo = [NSEntityDescription
-                                           insertNewObjectForEntityForName:@"FailedBankInfo"
-                                           inManagedObjectContext:context];
-        [failedBankInfo setValue:@"Test Bank" forKey:@"name"];
-        [failedBankInfo setValue:@"Testville" forKey:@"city"];
-        [failedBankInfo setValue:@"Testland" forKey:@"state"];
-        NSManagedObject *failedBankDetails = [NSEntityDescription
-                                              insertNewObjectForEntityForName:@"FailedBankDetails"
-                                              inManagedObjectContext:context];
-        [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
-        [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
-        [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
-        [failedBankDetails setValue:failedBankInfo forKey:@"info"];
-        [failedBankInfo setValue:failedBankDetails forKey:@"details"];
+        NSDate *date = [NSDate date];
+        
+        
+        CCAppDelegate *appDelegate = (CCAppDelegate *)[[UIApplication sharedApplication]delegate];
+        self.managedObjectContext = [appDelegate managedObjectContext];
+        
+        NSManagedObject *dataRecord = [NSEntityDescription
+                                           insertNewObjectForEntityForName:@"DataRecord"
+                                           inManagedObjectContext:self.managedObjectContext];
+        NSData *xData = [NSKeyedArchiver archivedDataWithRootObject:self.accelx];
+        NSData *yData = [NSKeyedArchiver archivedDataWithRootObject:self.accely];
+        NSData *zData = [NSKeyedArchiver archivedDataWithRootObject:self.accelz];
+        [dataRecord setValue:xData forKey:@"accelX"];
+        [dataRecord setValue:yData forKey:@"accelY"];
+        [dataRecord setValue:zData forKey:@"accelZ"];
+        [dataRecord setValue:date forKey:@"date"];
         NSError *error;
-        if (![context save:&error]) {
+        if (![self.managedObjectContext save:&error]) {
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
         }
-        
-        */
+        [self.motionManager stopAccelerometerUpdates];
         
         [self performSegueWithIdentifier:@"MPAnalysis" sender:nil];
     }
@@ -543,26 +451,11 @@ NSTimer *timer;
 }
 
 - (NSNumber *) numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
-    /*
-    if(phase_lev[index] == 0.0)
-    {
-        return [NSDecimalNumber zero];
-    }
-     */
     if(fieldEnum == CPTScatterPlotFieldX)
     {
         return [NSNumber numberWithInt: index];
-        /*
-        NSLog(@"phase is %lf", phase_lev[index]);
-        return [NSNumber numberWithFloat:phase_lev[index]];
-         */
     } else {
-        //NSLog(@"plot identifier is %@", plot.identifier);
         if([plot.identifier isEqual:@"xPlot"] == YES)
-            /*
-            NSLog(@"mag is %lf", magnitude[index]);
-            return [NSNumber numberWithFloat:magnitude[index]];
-        */
             return [NSNumber numberWithDouble:[[self.dataQueue objectAtIndex:index] AccelX]];
         else if([plot.identifier isEqual:@"yPlot"] == YES)
             return [NSNumber numberWithDouble:[[self.dataQueue objectAtIndex:index] AccelY]];
@@ -594,6 +487,31 @@ NSTimer *timer;
         [AAC setDataQueue:_dataQueue];
     }
     
+}
+
+-(void) outputRotationData:(CMRotationRate)rotation
+{
+    /*
+     self.rotX.text = [NSString stringWithFormat:@" %.2fr/s",rotation.x];
+     if(fabs(rotation.x) > fabs(currentMaxRotX))
+     {
+     currentMaxRotX = rotation.x;
+     }
+     self.rotY.text = [NSString stringWithFormat:@" %.2fr/s",rotation.y];
+     if(fabs(rotation.y) > fabs(currentMaxRotY))
+     {
+     currentMaxRotY = rotation.y;
+     }
+     self.rotZ.text = [NSString stringWithFormat:@" %.2fr/s",rotation.z];
+     if(fabs(rotation.z) > fabs(currentMaxRotZ))
+     {
+     currentMaxRotZ = rotation.z;
+     }
+     
+     self.maxRotX.text = [NSString stringWithFormat:@" %.2f",currentMaxRotX];
+     self.maxRotY.text = [NSString stringWithFormat:@" %.2f",currentMaxRotY];
+     self.maxRotZ.text = [NSString stringWithFormat:@" %.2f",currentMaxRotZ];
+     */
 }
 
 @end

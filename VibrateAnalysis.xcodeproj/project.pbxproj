@@ -31,6 +31,10 @@
 		41068F381A13630E003CB1AF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41068F371A13630E003CB1AF /* Accelerate.framework */; };
 		41068F3B1A16F826003CB1AF /* AAnalysisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41068F3A1A16F826003CB1AF /* AAnalysisController.m */; };
 		41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */; };
+		41F4D04E1A199C2200274903 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4D04D1A199C2200274903 /* CoreData.framework */; };
+		41F4D0511A1A107800274903 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0501A1A107800274903 /* HistoryTableViewController.m */; };
+		41F4D0541A1A93BC00274903 /* AccelerationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0531A1A93BC00274903 /* AccelerationViewController.m */; };
+		41F4D0571A1AA5D200274903 /* FrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F4D0561A1AA5D200274903 /* FrequencyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +159,13 @@
 		41068F391A16F826003CB1AF /* AAnalysisController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAnalysisController.h; path = F/AAnalysisController.h; sourceTree = "<group>"; };
 		41068F3A1A16F826003CB1AF /* AAnalysisController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAnalysisController.m; path = F/AAnalysisController.m; sourceTree = "<group>"; };
 		41F4D04B1A19857A00274903 /* DataRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataRecord.xcdatamodel; sourceTree = "<group>"; };
+		41F4D04D1A199C2200274903 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		41F4D04F1A1A107800274903 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		41F4D0501A1A107800274903 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		41F4D0521A1A93BC00274903 /* AccelerationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationViewController.h; sourceTree = "<group>"; };
+		41F4D0531A1A93BC00274903 /* AccelerationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationViewController.m; sourceTree = "<group>"; };
+		41F4D0551A1AA5D200274903 /* FrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyViewController.h; sourceTree = "<group>"; };
+		41F4D0561A1AA5D200274903 /* FrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F4D04E1A199C2200274903 /* CoreData.framework in Frameworks */,
 				41068F381A13630E003CB1AF /* Accelerate.framework in Frameworks */,
 				41068F241A0DDC5D003CB1AF /* QuartzCore.framework in Frameworks */,
 				410681171A09F13C003CB1AF /* CoreMotion.framework in Frameworks */,
@@ -210,6 +222,7 @@
 		410680DD1A09F0DA003CB1AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41F4D04D1A199C2200274903 /* CoreData.framework */,
 				41068F371A13630E003CB1AF /* Accelerate.framework */,
 				41068F231A0DDC5D003CB1AF /* QuartzCore.framework */,
 				410681161A09F13C003CB1AF /* CoreMotion.framework */,
@@ -227,6 +240,12 @@
 				410680ED1A09F0DA003CB1AF /* CCAppDelegate.h */,
 				410680EE1A09F0DA003CB1AF /* CCAppDelegate.m */,
 				410680F01A09F0DA003CB1AF /* Main_iPhone.storyboard */,
+				41F4D0521A1A93BC00274903 /* AccelerationViewController.h */,
+				41F4D0531A1A93BC00274903 /* AccelerationViewController.m */,
+				41F4D04F1A1A107800274903 /* HistoryTableViewController.h */,
+				41F4D0501A1A107800274903 /* HistoryTableViewController.m */,
+				41F4D0551A1AA5D200274903 /* FrequencyViewController.h */,
+				41F4D0561A1AA5D200274903 /* FrequencyViewController.m */,
 				41068F391A16F826003CB1AF /* AAnalysisController.h */,
 				41068F3A1A16F826003CB1AF /* AAnalysisController.m */,
 				41F4D04A1A19857A00274903 /* DataRecord.xcdatamodeld */,
@@ -466,6 +485,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F4D0541A1A93BC00274903 /* AccelerationViewController.m in Sources */,
+				41F4D0511A1A107800274903 /* HistoryTableViewController.m in Sources */,
+				41F4D0571A1AA5D200274903 /* FrequencyViewController.m in Sources */,
 				41F4D04C1A19857A00274903 /* DataRecord.xcdatamodeld in Sources */,
 				410680EF1A09F0DA003CB1AF /* CCAppDelegate.m in Sources */,
 				41068F331A0F490A003CB1AF /* NSMutableArray+QueueAdditions.m in Sources */,

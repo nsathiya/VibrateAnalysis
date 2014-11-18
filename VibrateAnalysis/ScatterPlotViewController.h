@@ -11,19 +11,26 @@
 #include <stdio.h>
 #import "DataReadPoint.h"
 #import "AAnalysisController.h"
+#import "CCAppDelegate.h"
 
 @interface ScatterPlotViewController : UIViewController <CPTPlotDataSource, CPTPlotSpaceDelegate>
 
-@property (nonatomic, strong) CPTGraphHostingView *hostView;
 @property NSMutableArray *dataQueue;
+@property NSMutableArray *accelx;
+@property NSMutableArray *accely;
+@property NSMutableArray *accelz;
+
+@property (nonatomic, strong) CPTGraphHostingView *hostView;
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
 @property (strong, nonatomic) IBOutlet UIView *graphView;
+@property (strong, nonatomic) IBOutlet UILabel *countLabel;
+@property (strong, nonatomic) IBOutlet UIButton *oneClickLabel;
+
 - (IBAction)MPAnalysis:(id)sender;
 - (IBAction)startRecording:(id)sender;
 - (IBAction)AnalysisButton:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *countLabel;
-@property (strong, nonatomic) IBOutlet UIButton *oneClickLabel;
-@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 
 
