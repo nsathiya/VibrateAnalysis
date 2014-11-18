@@ -20,6 +20,7 @@
     MedicationObject *drug3 = [[MedicationObject alloc]initWithName:@"Inderal" dosage:@"75"];
     
     self.reminderArray = [[NSMutableArray alloc] initWithObjects:drug1, drug2, drug3, nil];
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated

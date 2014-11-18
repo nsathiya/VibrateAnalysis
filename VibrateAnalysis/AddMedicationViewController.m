@@ -51,10 +51,25 @@
     return YES;
 }
 
-
 - (IBAction)addPressed:(id)sender {
-    self.reminder = [[MedicationObject alloc]initWithName:self.name.text dosage:self.dosage.text];
-    [self.caller.reminderArray addObject:self.reminder];
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if ([self.name.text isEqualToString: @""]) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:@"Name field empty"
+                                                         delegate:self
+                                                cancelButtonTitle:@"Dismiss"
+                                                otherButtonTitles: nil];
+        [message show];
+    } else {
+        self.reminder = [[MedicationObject alloc]initWithName:self.name.text dosage:self.dosage.text];
+        [self.caller.reminderArray addObject:self.reminder];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+}
+
+
 @end

@@ -213,11 +213,11 @@
             </objects>
             <point key="canvasLocation" x="1870" y="-293"/>
         </scene>
-        <!--Stats-->
+        <!--Test-->
         <scene sceneID="buv-cR-wtn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zKa-97-P7e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stats" id="86f-bv-FDD"/>
+                    <tabBarItem key="tabBarItem" title="Test" image="StatsIcon" id="86f-bv-FDD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PrY-dk-Y0K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -306,7 +306,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npi-Zr-htT">
-                                <rect key="frame" x="90" y="76" width="214" height="30"/>
+                                <rect key="frame" x="90" y="76" width="115" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -324,8 +324,20 @@
                                     <action selector="delete:" destination="h5H-4i-u4e" eventType="touchUpInside" id="UYG-BR-Dgb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hco-hx-rCq">
+                                <rect key="frame" x="213" y="80" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d18-wv-Z39">
+                                <rect key="frame" x="16" y="118" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5sE-9f-QgD">
-                                <rect key="frame" x="16" y="131" width="288" height="322"/>
+                                <rect key="frame" x="16" y="147" width="288" height="316"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alert" id="qt8-UB-I8Q">
@@ -473,7 +485,7 @@
         <scene sceneID="1yf-ff-JQG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zbc-xR-8fh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reminders" id="lU4-ES-oTz"/>
+                    <tabBarItem key="tabBarItem" title="Reminders" image="RemindersIcon" id="lU4-ES-oTz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hw1-yq-x3Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -489,6 +501,10 @@
             <point key="canvasLocation" x="836" y="413"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="RemindersIcon" width="30" height="30"/>
+        <image name="StatsIcon" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
