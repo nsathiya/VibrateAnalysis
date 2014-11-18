@@ -425,6 +425,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Naren Sathiya";
 				TargetAttributes = {
+					410680DA1A09F0DA003CB1AF = {
+						DevelopmentTeam = 4NZP92642L;
+					};
 					410680FE1A09F0DA003CB1AF = {
 						TestTargetID = 410680DA1A09F0DA003CB1AF;
 					};
