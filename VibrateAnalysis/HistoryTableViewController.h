@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CCAppDelegate.h"
 #import "AccelerationViewController.h"
+#import "graphCell.h"
 
 @interface HistoryTableViewController : UITableViewController
 

@@ -39,6 +39,8 @@
     [fetchRequest setEntity:entity];
     NSError *error;
     self.graphTests = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSArray * reverse = [[self.graphTests reverseObjectEnumerator] allObjects];
+    self.graphTests = reverse;
     //self.title = @"Failed Banks";
     
 }
@@ -59,29 +61,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count is %i", [graphTests count]);
+ // NSLog(@"count is %i", [graphTests count]);
 
     return [graphTests count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"cell";
     
-    UITableViewCell *cell =
+    graphCell *cell =
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Set up the cell...
     NSManagedObject *test = [graphTests objectAtIndex:indexPath.row];
-    NSDate *date = [test valueForKey:@"Date"];
+    NSDate *time = [test valueForKey:@"Date"];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy'-'MM'-'dd' | 'HH':'mm':'ss a' ";
+    dateFormatter.dateFormat = @"HH':'mm':'ss a";
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter stringFromDate:time];
+    
+    cell.timeLabel.text = [dateFormatter stringFromDate:time];
+    
+    NSDate *date = [test valueForKey:@"Date"];
+    dateFormatter.dateFormat = @"yyyy'-'MM'-'dd'";
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormatter stringFromDate:date];
     
-    
-    
-    cell.textLabel.text = [dateFormatter stringFromDate:date];
+    cell.dateLabel.text = [dateFormatter stringFromDate:date];
     
     return cell;
 }

@@ -95,7 +95,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sht-LC-w1d">
-                                <rect key="frame" x="370" y="120" width="178" height="30"/>
+                                <rect key="frame" x="370" y="102" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Record">
@@ -106,7 +106,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-Ab-vjZ">
-                                <rect key="frame" x="370" y="190" width="178" height="30"/>
+                                <rect key="frame" x="370" y="180" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="History">
@@ -116,6 +116,17 @@
                                     <segue destination="6pa-IT-e0j" kind="push" id="p6m-Wc-SRq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ht9-NR-hv6">
+                                <rect key="frame" x="370" y="258" width="178" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetData:" destination="vXZ-lx-hvc" eventType="touchDown" id="WVg-Wb-HL5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -123,12 +134,6 @@
                     <navigationItem key="navigationItem" id="sAm-Jh-Bui"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="maxAccX" destination="aL2-bh-IiR" id="spq-gB-FAJ"/>
-                        <outlet property="maxAccY" destination="2oJ-0u-fG5" id="72x-Ka-Zzn"/>
-                        <outlet property="maxAccZ" destination="DTX-NO-fN1" id="udj-Vi-iZu"/>
-                        <outlet property="maxRotX" destination="DNe-Oy-v3h" id="ijG-LZ-NB5"/>
-                        <outlet property="maxRotY" destination="Ip7-yE-2AZ" id="soI-57-FkP"/>
-                        <outlet property="maxRotZ" destination="v0h-Aa-5Aq" id="KgF-fQ-UKW"/>
                         <segue destination="7nF-BX-hrn" kind="push" identifier="toGraph" id="deV-PV-wWQ"/>
                     </connections>
                 </viewController>
@@ -140,22 +145,40 @@
         <scene sceneID="py6-PJ-pEZ">
             <objects>
                 <tableViewController id="6pa-IT-e0j" customClass="HistoryTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dYq-Ct-3Lq">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="dYq-Ct-3Lq">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <color key="sectionIndexColor" red="0.6390115489" green="0.081773264420000005" blue="0.041069832360000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="MYy-vD-fqo">
-                                <rect key="frame" x="0.0" y="86" width="568" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYy-vD-fqo" id="qNu-2D-ZGX">
-                                    <rect key="frame" x="0.0" y="0.0" width="535" height="43"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="82" id="THj-Ym-4tr" customClass="graphCell">
+                                <rect key="frame" x="0.0" y="86" width="568" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="THj-Ym-4tr" id="Hfh-5O-cYh">
+                                    <rect key="frame" x="0.0" y="0.0" width="535" height="81"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92i-mV-zs7">
+                                            <rect key="frame" x="20" y="10" width="246" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-jc-kn2">
+                                            <rect key="frame" x="20" y="49" width="246" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="HYK-Da-6c8" kind="push" identifier="showGraph" id="i80-ga-GDg"/>
+                                    <outlet property="dateLabel" destination="PMb-jc-kn2" id="Xf5-Xu-8TU"/>
+                                    <outlet property="timeLabel" destination="92i-mV-zs7" id="IpT-pW-ha0"/>
+                                    <segue destination="HYK-Da-6c8" kind="push" identifier="showGraph" id="Xe1-hf-5Mp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
